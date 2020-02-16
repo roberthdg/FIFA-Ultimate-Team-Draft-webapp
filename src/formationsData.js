@@ -1,6 +1,12 @@
-const mapFormation442 = {'gk':0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rm':5, 'rcm':6, 'lcm':7, 'lm':8, 'rst':9, 'lst':10};
 
-const graphFormation442 = [
+const formation = [
+                {'gk': 0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rm':5, 'rcm':6, 'lcm':7, 'lm':8, 'rst':9, 'lst':10}, 
+                {'gk':0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rcm':5, 'cm':6, 'lcm':7, 'rw':8, 'st':9, 'lw':10}
+            ]
+
+
+const formationLinks = [
+                [          //4-4-2
                     [0,0,1,1,0,0,0,0,0,0,0],
                     [0,0,1,0,0,1,0,0,0,0,0],
                     [1,0,1,0,0,0,1,0,0,0,0],
@@ -12,11 +18,9 @@ const graphFormation442 = [
                     [0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0]
-                ]
+                ],
 
-const mapFormation433 = {'gk':0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rcm':5, 'cm':6, 'lcm':7, 'rw':8, 'st':9, 'lw':10};
-
-const graphFormation433 = [
+                [           //4-3-3
                     [0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0],
@@ -29,4 +33,8 @@ const graphFormation433 = [
                     [0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,0,0]
                 ]
+            ]
 
+exports.formation = formation
+
+exports.formationLinks = formationLinks
