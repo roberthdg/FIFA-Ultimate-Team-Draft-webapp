@@ -1,6 +1,26 @@
 body {
-    color:blue;
+    background-image: url('/img/bg.jpg');
+    background-position: 50% 50%;
 }
+
+#lineup {
+    background-image: url('/img/field.png');
+    color:white;
+    flex: 2 0 0;
+    font-weight: bolder;
+}
+
+#bench {
+    color:pink;
+    font-weight: bolder;
+}
+
+.flex-container {
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+    flex-flow : wrap;
+  }
 
 .icon {
     color:gray;

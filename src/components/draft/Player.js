@@ -1,13 +1,13 @@
 import React from 'react'
 
 function Player(props)  {
-    return (
+  return (
     <>  
-        <br/>
-          I'm a player, my position is  {props.position}, my number is {props.number}.
-        <br/>
+      <br/>
+        {props.position.toUpperCase()} ({props.number})
+      <br/>
     </>
-    )
+  )
 }
 
 export default Player

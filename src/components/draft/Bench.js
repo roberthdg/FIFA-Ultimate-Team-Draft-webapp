@@ -4,7 +4,9 @@ import Player from './Player'
 
 function Lineup()  {
     return (
-        <> <Player key={12} position={ "benchboi" } number={99} /> </>
+        <div id="bench"> 
+            <Player key={12} position={ "benchboi" } number={99} /> 
+        </div>
     )
 }
 

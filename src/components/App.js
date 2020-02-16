@@ -1,14 +1,12 @@
 import React from 'react';
 import Header from './layout/Header';
-import Lineup from './draft/Lineup';
-import Bench from './draft/Bench';
+import Body from './layout/Body';
 
 function App() {
   return (
     <>
       <Header />
-      <Lineup />
-      <Bench />
+      <Body />
     </>
   );
 }

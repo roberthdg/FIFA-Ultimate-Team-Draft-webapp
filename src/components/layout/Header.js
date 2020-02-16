@@ -26,7 +26,7 @@ function Header()  {
 
             <Navbar.Collapse>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#">Build Your Ultimate Team</Nav.Link>
+                    <Nav.Link href="#lineup">Build Your Ultimate Team</Nav.Link>
                     <Nav.Link href="#">Rules</Nav.Link>
                     <Nav.Link href="#">Leaderboard</Nav.Link>
                     <Nav.Link href="#" className="d-block d-md-none" >Login</Nav.Link>
