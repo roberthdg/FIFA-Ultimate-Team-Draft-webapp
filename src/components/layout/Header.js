@@ -3,6 +3,7 @@ import {Navbar, Nav, Button} from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons' 
+import { Link } from 'react-router-dom'
 
 library.add(fab); 
 
@@ -26,18 +27,17 @@ function Header()  {
 
             <Navbar.Collapse>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#lineup">Build Your Ultimate Team</Nav.Link>
-                    <Nav.Link href="#">Rules</Nav.Link>
-                    <Nav.Link href="#">Leaderboard</Nav.Link>
+                    <Nav.Link as={Link} to ="/">Build Your Ultimate Team</Nav.Link>
+                    <Nav.Link as={Link} to ="/rules">Rules</Nav.Link>
+                    <Nav.Link as={Link} to ="/leaderboard">Leaderboard</Nav.Link>
                     <Nav.Link href="#" className="d-block d-md-none" >Login</Nav.Link>
                 </Nav>
                   
-            <Button variant="outline-light d-none d-md-block">Login</Button>
+                <Button variant="outline-light d-none d-md-block">Login</Button>
 
-            <Nav.Link href="#">
-                <FontAwesomeIcon className="icon d-none d-md-block" icon={['fab', 'github']} size="2x"/>
-            </Nav.Link>
-
+                <Nav.Link href="https://github.com/roberthdg">
+                    <FontAwesomeIcon className="icon d-none d-md-block" icon={['fab', 'github']} size="2x"/>
+                </Nav.Link>
             </Navbar.Collapse>
 
         </Navbar>

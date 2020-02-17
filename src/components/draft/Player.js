@@ -3,9 +3,12 @@ import React from 'react'
 function Player(props)  {
   return (
     <>  
-      <br/>
+      { 
+      //if(props.number==4) {}
+      }
+      <div id="player">
         {props.position.toUpperCase()} ({props.number})
-      <br/>
+      </div>
     </>
   )
 }

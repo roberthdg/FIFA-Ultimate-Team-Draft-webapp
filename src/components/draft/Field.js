@@ -5,7 +5,8 @@ import Player from './Player'
 let formation = Object.keys(formationData.formation[0]);
 
 let players = formation.map( (item, i) => <Player key={i} position={ item } number={i} /> )
-   
+
+
 
 function Field()  {
     return (
