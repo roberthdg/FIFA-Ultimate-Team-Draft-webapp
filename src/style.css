@@ -1,8 +1,8 @@
 body {
     background-image: url('/img/bg.jpg');
-    background-size:  200vh 100vh;
-    background-position: 50% 0;
-    background-attachment: fixed;
+    background-size:  100vw;
+    background-position: 50% 60%;
+    background-attachment: fixed;  
 }
 
 #lineup {
@@ -21,7 +21,7 @@ body {
    background-image: url('/img/select_player_card.png');
    background-repeat: no-repeat;
    background-size:  10vh 10vh;
-   background-position:  0  0;
+   background-position: 50%  50%;
    padding: 7vh;
 }
 
@@ -37,3 +37,4 @@ body {
 .icon:hover {
     color:white;
 }
+
