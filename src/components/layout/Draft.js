@@ -8,10 +8,9 @@ import Bench from '../draft/Bench';
 function Draft()  {
     return (
 
-      <div>
-          <Field />
-          <Info />
-          <Bench />
+      <div className="flexbox">
+        <div className="item"> <Field /> </div>
+        <div className="item"> <Info /> </div>
       </div>
       
     )
