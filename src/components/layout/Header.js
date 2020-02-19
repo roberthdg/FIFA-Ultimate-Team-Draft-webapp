@@ -10,7 +10,7 @@ library.add(fab);
 function Header()  {
     return (
         <>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className="nav" collapseOnSelect expand="lg" bg="dark" variant="dark">
 
             <Navbar.Brand href="#home">
                 <img

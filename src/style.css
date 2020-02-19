@@ -5,6 +5,10 @@ body {
     background-attachment: fixed;  
 }
 
+.nav {
+    z-index: 9999;
+}
+
 #lineup {
     background-image: url('/img/field.png');
     background-repeat: no-repeat;
@@ -46,6 +50,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
+    flex-direction: row-reverse;
   }
 
 .grid-item {

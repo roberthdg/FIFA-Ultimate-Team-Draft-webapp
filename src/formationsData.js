@@ -1,108 +1,57 @@
-
-const formation = [
-                //4-4-2
-                {'gk': 0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rm':5, 'rcm':6, 'lcm':7, 'lm':8, 'rst':9, 'lst':10}, 
-                //4-3-3
-                {'gk':0, 'rb': 1, 'rcb':2, 'lcb':3, 'lb':4, 'rcm':5, 'cam':6, 'lcm':7, 'rw':8, 'st':9, 'lw':10}
-            ]
-
-
 const formation442 = [
     { 
         'position': 'GK',
-        'links' : ['RCB', 'LCB'],
-        'chemistryLines' : [{'RCB': []}, {'LCB': []}]
+        'links' : [{'RCB': '70'}, {'LCB': '110'}],
     },
-    //Defenders
     { 
         'position': 'RB',
-        'links' : ['RCB', 'RM'],
-        'chemistryLines' : [{'RCB': []}, {'RM': []}]
+        'links' : [{'RCB':'180'}, {'RM':'90'}]
     },
     { 
         'position': 'RCB',
-        'links' : ['GK', 'LCB', 'RCM', 'RB'],
-        'chemistryLines' : [{'RCM': []}, {'LCB': []}]
+        'links' : [{'GK': null}, {'LCB':'180'}, {'RCM':'90'}, {'RB': null}]
     },
     { 
         'position': 'LCB',
-        'links' : ['GK', 'RCB', 'LCM', 'LB'],
-        'chemistryLines' : [{'LCM': []}, {'LB': []}]
+        'links' : [{'GK': null}, {'RCB': null}, {'LCM': '90'}, {'LB': '180'}]
     },
     { 
         'position': 'LB',
-        'links' : ['LCB', 'LM'],
-        'chemistryLines' : [{'LM': []}]
+        'links' : [{'LCB': null}, {'LM':'90'}]
     },
-    //Midfielders
     { 
         'position': 'RM',
-        'links' : ['RST', 'RCM', 'RB'],
-        'chemistryLines' : [{'RCM': []}, {'RST': []}]
+        'links' : [{'RST': '135'}, {'RCM': '180'}, {'RB': null}]
     },
     { 
         'position': 'RCM',
-        'links' : ['RCB', 'RM', 'LCM', 'RST'],
-        'chemistryLines' : [{'LCM': []}, {'RST': []}]
+        'links' : [{'RCB': null}, {'RM': null}, {'LCM': '180'}, {'RST': '90'}]
     },
     { 
         'position': 'LCM',
-        'links' : ['LCB', 'LM', 'RCM', 'LST'],
-        'chemistryLines' : [{'LM': []}, {'LST': []}]
+        'links' : [{'LCB': null}, {'LM': '180'}, {'RCM': null}, {'LST': '90'}],
     },
     { 
         'position': 'LM',
-        'links' : ['LST', 'LC', 'LB'],
-        'chemistryLines' : [{'LST': []}]
+        'links' : [{'LST':'45'}, {'LCM': null}, {'LB': null}]
     },
-    // Forwards
     { 
         'position': 'RST',
-        'links' : ['RM', 'RCM', 'LST'],
-        'chemistryLines' : [{'LST': []}]
+        'links' : [{'RM': null}, {'RCM': null}, {'LST': '180'}]
     },
     { 
         'position': 'LST',
-        'links' : ['LM', 'LCM', 'RST'],
-        'chemistryLines' : []
+        'links' : [{'LM': null}, {'LCM': null}, {'RST': null}],
     }    
 ]
+
+const formation433 = []
+
+const formation343 = []
     
+const formations = [formation442, formation433, formation343]
 
+exports.formations = formations
 
-
-const formationLinks = [
-                [          //4-4-2
-                    [0,0,1,1,0,0,0,0,0,0,0],
-                    [0,0,1,0,0,1,0,0,0,0,0],
-                    [1,0,1,0,0,0,1,0,0,0,0],
-                    [1,0,0,1,0,0,0,1,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0]
-                ],
-
-                [           //4-3-3
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,0]
-                ]
-            ]
-
-exports.formation = formation
-
-exports.formationLinks = formationLinks
 
 

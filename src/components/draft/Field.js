@@ -1,38 +1,29 @@
 import React from 'react'
-import formationData from '../../formationsData.js'
+import data from '../../formationsData.js'
 import Player from './Player'
 
-let formation = Object.keys(formationData.formation[0]);
+function displayFormation(selectedFormation) {
 
-let players = formation.map( (item, i) => <div className={i>1? "bitch": ""}><Player key={i} position={ item } number={i}/></div> )
+    let formation = data.formations[selectedFormation];
+    
+    let players = formation.map( 
+        (player, i) => <Player key={i} id={i} position={player.position} chemistryLinks={player.links}/>
+    )
 
+    let lineup = [
+                  <div key="attack" className="flex-grid"> {players.slice(9,11)} </div>,
+                  <div key="midfield" className="flex-grid"> {players.slice(5,9)} </div>,
+                  <div key="defense" className="flex-grid"> {players.slice(1,5)} </div>,
+                  <div key="goalkeeper" className="flex-grid"> {players.slice(0,1)} </div>
+                ]
 
+    return lineup
+}
 
 function Field()  {
     return (
             <div id="lineup">
-
-                <div class="flex-grid">
-                    {players[10]}
-                    {players[9]}
-                   
-                </div>
-
-                <div class="flex-grid">
-                    {players[8]}
-                    {players[7]}
-                    {players[6]}
-                    {players[5]}
-                    {players[4]}
-                    {players[3]}
-                    {players[2]}
-                    {players[1]}
-                </div>
-
-                <div class="flex-grid">
-                    {players[0]}
-                </div>
-
+                {displayFormation(0)} {/* props.selectedFormation*/}
             </div>
     )
 }

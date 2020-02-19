@@ -10,12 +10,12 @@ const chemistryLinesCoordenates = {
   '180': [0, 98, 50, 98]
 }
 
-function drawChemistryLine(color, degree) {
+function drawChemistryLine(color, degree, position) {
 
   let coordenates=chemistryLinesCoordenates[degree]
 
   return  (
-    <svg height="25vh" width="45vh" className="svggg">
+    <svg key={position} height="25vh" width="45vh" className="svggg">
      <line  
         x1={`${coordenates[0]}%`}  y1={`${coordenates[1]}%`}
         x2={`${coordenates[2]}%`}  y2={`${coordenates[3]}%`} 
@@ -35,16 +35,10 @@ function Player(props)  {
           src={process.env.PUBLIC_URL + '/img/messi.png'}
           className="player-card"
         />
-
-        { props.number==0 ? drawChemistryLine("#e3ae0e", '110') : null}
-        { props.number==0 ? drawChemistryLine("#e3ae0e", '70') : null}
-
-        { props.number==2 ? drawChemistryLine("red", '180') : null}
-        { props.number==2 ? drawChemistryLine("red", '90') : null}
-
-        { props.number==5 ? drawChemistryLine("#42f542", '135') : null}
-        { props.number==5 ? drawChemistryLine("#42f542", '180') : null}
-     
+        {props.chemistryLinks.map(
+          link => Object.values(link)[0]!=null ? 
+            drawChemistryLine("#b4b5b8", Object.values(link)[0], Object.values(link)[0]+Object.keys(link)[0]) : null
+          )}
       </div>
     </>
   )
