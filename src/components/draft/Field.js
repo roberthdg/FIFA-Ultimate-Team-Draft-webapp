@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../../formationsData.js'
+import data from '../../data/formations.js'
 import Player from './Player'
 
 function displayFormation(selectedFormation) {
@@ -11,10 +11,10 @@ function displayFormation(selectedFormation) {
     )
 
     let lineup = [
-                  <div key="attack" className="flex-grid"> {players.slice(9,11)} </div>,
-                  <div key="midfield" className="flex-grid"> {players.slice(5,9)} </div>,
-                  <div key="defense" className="flex-grid"> {players.slice(1,5)} </div>,
-                  <div key="goalkeeper" className="flex-grid"> {players.slice(0,1)} </div>
+                  <div key="attack" className="flex grid"> {players.slice(9,11)} </div>,
+                  <div key="midfield" className="flex grid"> {players.slice(5,9)} </div>,
+                  <div key="defense" className="flex grid"> {players.slice(1,5)} </div>,
+                  <div key="goalkeeper" className="flex grid"> {players.slice(0,1)} </div>
                 ]
 
     return lineup

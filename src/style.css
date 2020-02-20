@@ -9,6 +9,22 @@ body {
     z-index: 9999;
 }
 
+.gray {
+    color: "#b4b5b8";
+}
+
+.green {
+    color: "#42f542";
+}
+
+.red {
+    color:"red";
+}
+
+.orange {
+    color:"#e3ae0e";
+}
+
 #lineup {
     background-image: url('/img/field.png');
     background-repeat: no-repeat;
@@ -38,35 +54,32 @@ body {
     color:white;
 }
 
-.svggg{
+.svg{
     position: absolute;
     margin-top: -20vh;
     margin-left: -18vh;
     -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
     filter: drop-shadow( 5px 3px 2px rgba(0, 0, 0, .7));
+    stroke-width: 1.5%;
 }
 
-.flex-grid {
+.flex {
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
-    flex-direction: row-reverse;
   }
+
+.flex-item {
+    width: 50%;
+}
+
+.grid {
+    flex-direction: row-reverse;
+}
 
 .grid-item {
     width: 23vh;
     height: 23vh;
-}
-
-.flexbox {
-    display: flex;
-    justify-content: center;
-    flex-direction:row; 
-    flex-wrap:wrap;
-}
-
-.item {
-    width: 50%;
 }
 
 .player-card {

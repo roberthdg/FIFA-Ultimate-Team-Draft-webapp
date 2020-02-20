@@ -12,7 +12,7 @@ function Header()  {
         <>
         <Navbar className="nav" collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-            <Navbar.Brand href="#home">
+            <Navbar.Brand>
                 <img
                     alt="FUT Logo"
                     src={process.env.PUBLIC_URL + '/img/fut_champions_logo.png'}
@@ -30,11 +30,8 @@ function Header()  {
                     <Nav.Link as={Link} to ="/">Build Your Ultimate Team</Nav.Link>
                     <Nav.Link as={Link} to ="/rules">Rules</Nav.Link>
                     <Nav.Link as={Link} to ="/leaderboard">Leaderboard</Nav.Link>
-                    <Nav.Link href="#" className="d-block d-md-none" >Login</Nav.Link>
                 </Nav>
-                  
-                <Button variant="outline-light d-none d-md-block">Login</Button>
-
+                
                 <Nav.Link href="https://github.com/roberthdg">
                     <FontAwesomeIcon className="icon d-none d-md-block" icon={['fab', 'github']} size="2x"/>
                 </Nav.Link>
