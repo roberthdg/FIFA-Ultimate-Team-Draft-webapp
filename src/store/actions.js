@@ -9,3 +9,10 @@ export const resetDraft = () =>{
         type:"RESET_DRAFT"
     };
 };
+
+export const addChemistry = (chem) =>{
+    return {
+        type:"PLAYER_ADDED",
+        payload: chem
+    };
+};

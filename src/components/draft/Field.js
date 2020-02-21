@@ -7,7 +7,14 @@ function displayFormation(selectedFormation) {
     let formation = data.formations[selectedFormation];
     
     let players = formation.map( 
-        (player, i) => <Player key={i} id={i} position={player.position} chemistryLinks={player.links}/>
+        (player, i)  => <Player key={i} 
+            position={player.position} 
+            nation={null}
+            league={null}
+            club={null}
+            links={player.links.map(link=> ({ ...link, chemistry: null }))}
+            cardImage={process.env.PUBLIC_URL + '/img/select_player_card.png'}
+        />
     )
 
     let lineup = [

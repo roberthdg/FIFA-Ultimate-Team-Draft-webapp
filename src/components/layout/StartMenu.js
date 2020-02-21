@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {startDraft} from '../../actions';
+import {startDraft} from '../../store/actions';
 
 function StartMenu()  {
     const dispatch = useDispatch();
