@@ -1,8 +1,62 @@
 import React, {useState} from 'react'
 import Link from './Link'
+import jugadores from '../../data/jugadores'
 
 
-function Player(props)  {
+const Player = ({fixedPosition, chemistryLinks}) => {
+
+  const [playerData, setPlayerData] = useState({
+    position:null,
+    nation:null,
+    league:null,
+    club:null,
+    cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+  })
+
+  const [chemistry, setChemistry] = useState(0);
+
+  const [links, setLinks] = useState(chemistryLinks);
+
+
+  function createChemistryLinks(links) {
+   return links.map(link => link.chemistryLine!=null ? 
+      <Link reference={fixedPosition}
+            chemistry={chemistry}
+            chemistryLine={link.chemistryLine} 
+            key={playerData.position+link.position}
+      /> : null
+    ) 
+  }
+  
+  function addPlayer() {
+      setPlayerData(jugadores)
+      links.map((link) => {
+        return null
+      })
+
+     // setLinks()
+     
+     // updateChemistryLinks(links)
+  }
+
+  return (
+    <>  
+      <div id="player" className="grid-item">
+        <img 
+           onClick={() => addPlayer()}
+          alt="Player card"
+          src={playerData.cardImage}
+          className="player-card"
+        />
+        {createChemistryLinks(links)}
+      </div>
+    </>
+  )
+}
+
+export default Player
+
+
 
   // const useState({
 
@@ -21,29 +75,10 @@ function Player(props)  {
       render (or not) link
 
   }
+
+  const [position, setPosition] = useState(null);
+  const [nation, setNation] = useState(null);
+  const [league, setLeague] = useState(null);
+  const [club, setClub] = useState(null);
   
   */
-
-
-  return (
-    <>  
-      <div id="player" className="grid-item">
-        <img 
-          alt="Player card"
-          src={props.cardImage}
-          className="player-card"
-        />
-        { props.links.map(link => link.chemistryLine!=null ? 
-          <Link reference={link.position}
-                chemistry={0}
-                chemistryLine={link.chemistryLine} 
-                key={props.position+link.position}
-            /> : null
-          ) 
-        }
-      </div>
-    </>
-  )
-}
-
-export default Player

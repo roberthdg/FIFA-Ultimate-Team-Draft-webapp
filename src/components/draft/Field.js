@@ -2,18 +2,14 @@ import React from 'react'
 import data from '../../data/formations.js'
 import Player from './Player'
 
-function displayFormation(selectedFormation) {
+const displayFormation = (selectedFormation) => {
 
     let formation = data.formations[selectedFormation];
     
     let players = formation.map( 
         (player, i)  => <Player key={i} 
-            position={player.position} 
-            nation={null}
-            league={null}
-            club={null}
-            links={player.links.map(link=> ({ ...link, chemistry: null }))}
-            cardImage={process.env.PUBLIC_URL + '/img/select_player_card.png'}
+                                fixedPosition={player.position} 
+                                chemistryLinks={player.links.map(link=> ({ ...link, chemistry: null }))}
         />
     )
 
@@ -27,7 +23,7 @@ function displayFormation(selectedFormation) {
     return lineup
 }
 
-function Field()  {
+const Field = () => {
     return (
             <div id="lineup">
                 {displayFormation(0)} {/* props.selectedFormation*/}
