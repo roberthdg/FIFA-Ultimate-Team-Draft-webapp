@@ -1,6 +1,7 @@
-export const startDraft = () =>{
+export const startDraft = (formation) =>{
     return {
-        type:"START_DRAFT"
+        type:"START_DRAFT",
+        payload: formation
     };
 };
 
@@ -10,9 +11,19 @@ export const resetDraft = () =>{
     };
 };
 
-export const addChemistry = (chem) =>{
+export const updatePlayer = (chem) =>{
     return {
-        type:"PLAYER_ADDED",
+        type:"PLAYER_UPDATED",
         payload: chem
+    };
+};
+
+export const updateFormation = () =>{
+    return {
+        type:"RIP",
+        payload: { 
+            position : 'GK',
+            chemistry: 2
+        }
     };
 };

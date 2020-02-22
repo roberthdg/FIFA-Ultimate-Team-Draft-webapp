@@ -21,18 +21,18 @@ const chemistryLinesColor = {
 
 const Link = (props) =>  {
 
-    let coordenates=chemistryLinesCoordenates[props.chemistryLine]
+  let coordenates=chemistryLinesCoordenates[props.chemistryLine]
 
-    let color = chemistryLinesColor[props.chemistry]
-  
-    return  (
-        <svg height="25vh" width="45vh" className="svg" stroke={color}>
-          <line  
-            x1={`${coordenates[0]}%`}  y1={`${coordenates[1]}%`}
-            x2={`${coordenates[2]}%`}  y2={`${coordenates[3]}%`} 
-          />
-        </svg>
-    )
+  let color = chemistryLinesColor[props.chemistry]
+
+  return  (
+    <svg height="25vh" width="45vh" className="svg" stroke={color}>
+      <line  
+        x1={`${coordenates[0]}%`}  y1={`${coordenates[1]}%`}
+        x2={`${coordenates[2]}%`}  y2={`${coordenates[3]}%`} 
+      />
+    </svg>
+  )
 }
 
 export default Link

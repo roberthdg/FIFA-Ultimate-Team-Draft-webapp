@@ -2,7 +2,7 @@
 import React from 'react'
 import Field from '../draft/Field';
 import Info from '../draft/Info';
-import Bench from '../draft/Bench';
+//import Bench from '../draft/Bench';
 
 
 function Draft()  {
@@ -10,7 +10,7 @@ function Draft()  {
 
       <div className="flex">
         <div className="flex-item"> <Field /> </div>
-        <div className="flex-item"> <Info /> </div>
+        <div className="flex-item centered"> <Info /> </div>
       </div>
       
     )

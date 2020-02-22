@@ -9,20 +9,8 @@ body {
     z-index: 9999;
 }
 
-.gray {
-    color: "#b4b5b8";
-}
-
-.green {
-    color: "#42f542";
-}
-
-.red {
-    color:"red";
-}
-
-.orange {
-    color:"#e3ae0e";
+.centered {
+    text-align: center;
 }
 
 #lineup {

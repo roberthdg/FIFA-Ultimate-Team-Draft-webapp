@@ -1,70 +1,136 @@
 const formation442 = [
     { 
-        position: 'GK',
-        links: [{position:'RCB', chemistryLine: '70'}, 
-                {position:'LCB', chemistryLine:'110'}],
+        player:{
+            position: 'GK',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'RCB', chemistryLine: '70', chemistry: null}, 
+                {position:'LCB', chemistryLine:'110', chemistry: null}],
     },
     { 
-        position : 'RB',
-        links: [{position:'RCB', chemistryLine:'180'}, 
-                {position:'RM', chemistryLine:'90'}]
+        player:{
+            position: 'RB',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'RCB', chemistryLine:'180', chemistry: null}, 
+                {position:'RM', chemistryLine:'90', chemistry: null}]
     },
     { 
-        position: 'RCB',
-        links: [{position:'LCB', chemistryLine:'180'}, 
-                {position:'RCM', chemistryLine:'90'}, 
-                {position:'RB', chemistryLine: null}, 
-                {position:'GK', chemistryLine: null}]
+        player:{
+            position: 'RCB',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LCB', chemistryLine:'180', chemistry: null}, 
+                {position:'RCM', chemistryLine:'90', chemistry: null}, 
+                {position:'RB', chemistryLine: null, chemistry: null}, 
+                {position:'GK', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'LCB',
-        links: [{position:'LCM', chemistryLine: '90'},
-                {position:'LB', chemistryLine: '180'}, 
-                {position:'GK', chemistryLine: null}, 
-                {position:'RCB', chemistryLine: null}]
+        player:{
+            position: 'LCB',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LCM', chemistryLine: '90', chemistry: null},
+                {position:'LB', chemistryLine: '180', chemistry: null}, 
+                {position:'GK', chemistryLine: null, chemistry: null}, 
+                {position:'RCB', chemistryLine: null, chemistry: null}]
     },
     { 
-        position : 'LB',
-        links : [{position:'LM', chemistryLine:'90'}, 
-                 {position:'LCB', chemistryLine: null}]
+        player:{
+            position: 'LB',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links : [{position:'LM', chemistryLine:'90', chemistry: null}, 
+                 {position:'LCB', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'RM',
-        links: [{position:'RST', chemistryLine: '135'}, 
-                {position:'RCM', chemistryLine: '180'}, 
-                {position:'RB', chemistryLine: null}]
+        player:{
+            position: 'RM',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'RST', chemistryLine: '135', chemistry: null}, 
+                {position:'RCM', chemistryLine: '180', chemistry: null}, 
+                {position:'RB', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'RCM',
-        links: [{position:'LCM', chemistryLine: '180'}, 
-                {position:'RST', chemistryLine: '90'}, 
-                {position:'RCB', chemistryLine: null}, 
-                {position:'RM', chemistryLine: null}]
+        player:{
+            position: 'RCM',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LCM', chemistryLine: '180', chemistry: null}, 
+                {position:'RST', chemistryLine: '90', chemistry: null}, 
+                {position:'RCB', chemistryLine: null, chemistry: null}, 
+                {position:'RM', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'LCM',
-        links: [{position:'LM', chemistryLine: '180'}, 
-                {position:'LST', chemistryLine: '90'}, 
-                {position:'RCM', chemistryLine: null}, 
-                {position:'LCB', chemistryLine: null}]
+        player:{
+            position: 'LCM',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LM', chemistryLine: '180', chemistry: null}, 
+                {position:'LST', chemistryLine: '90', chemistry: null}, 
+                {position:'RCM', chemistryLine: null, chemistry: null}, 
+                {position:'LCB', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'LM',
-        links: [{position:'LST', chemistryLine:'45'}, 
-                {position:'LCM', chemistryLine: null}, 
-                {position:'LB', chemistryLine: null}]
+        player:{
+            position: 'LM',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LST', chemistryLine:'45', chemistry: null}, 
+                {position:'LCM', chemistryLine: null, chemistry: null}, 
+                {position:'LB', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'RST',
-        links: [{position:'LST', chemistryLine: '180'}, 
-                {position:'RM', chemistryLine: null}, 
-                {position:'RCM', chemistryLine: null}]
+        player:{
+            position: 'RST',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LST', chemistryLine: '180', chemistry: null}, 
+                {position:'RM', chemistryLine: null, chemistry: null}, 
+                {position:'RCM', chemistryLine: null, chemistry: null}]
     },
     { 
-        position: 'LST',
-        links: [{position:'LM', chemistryLine: null}, 
-                {position:'LCM', chemistryLine: null}, 
-                {position:'RST', chemistryLine: null}]
+        player:{
+            position: 'LST',
+            nation:null,
+            league:null,
+            club:null,
+            cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+        },
+        links: [{position:'LM', chemistryLine: null, chemistry: null}, 
+                {position:'LCM', chemistryLine: null, chemistry: null}, 
+                {position:'RST', chemistryLine: null, chemistry: null}]
     }    
 ]
 
