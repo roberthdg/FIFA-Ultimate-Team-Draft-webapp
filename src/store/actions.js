@@ -11,12 +11,26 @@ export const resetDraft = () =>{
     };
 };
 
+export const openModal = () =>{
+    return {
+        type:"OPEN_MODAL",
+    };
+};
+
+export const closeModal = () =>{
+    return {
+        type:"CLOSE_MODAL",
+    };
+};
+
 export const updatePlayer = (player, index) =>{
     return {
-        type:"PLAYER_UPDATED",
+        type:"UPDATE_PLAYER",
         payload: {
             player:player,
             index:index
         }
     };
 };
+
+
