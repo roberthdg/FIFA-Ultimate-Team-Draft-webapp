@@ -11,19 +11,12 @@ export const resetDraft = () =>{
     };
 };
 
-export const updatePlayer = (chem) =>{
+export const updatePlayer = (player, index) =>{
     return {
         type:"PLAYER_UPDATED",
-        payload: chem
-    };
-};
-
-export const updateFormation = () =>{
-    return {
-        type:"RIP",
-        payload: { 
-            position : 'GK',
-            chemistry: 2
+        payload: {
+            player:player,
+            index:index
         }
     };
 };

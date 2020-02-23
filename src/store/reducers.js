@@ -1,43 +1,47 @@
 import { combineReducers } from 'redux'
 
-const chemistry = (state = 0, action) => {
-    switch(action.type) {
-        case 'PLAYER_ADDED':
-            return state+=action.payload
-        
-        case 'PLAYER_UPDATED':
-            return state+=3
+const calculateChemistry = (formation, playerIndex) => {
 
-        case 'RESET_DRAFT':
-            return state=0
-        
-            default:
-            return state
-    }
+    formation[playerIndex].links.forEach(link => {
+        let secondPlayerIndex = formation.findIndex(player => player.fieldPosition === link.position);
+
+        let player1 = formation[playerIndex].player
+        let player2 = formation[secondPlayerIndex].player
+        if(player2.position==null) return null
+
+        let linkChemistry = 0
+        linkChemistry+= player1.nation===player2.nation? 1 : 0
+        linkChemistry+= player1.league===player2.league? 1 : 0
+        linkChemistry+= player1.club===player2.club? 1 : 0
+
+        //set chemistry of player
+        link.chemistry = linkChemistry
+ 
+        //update chemistry of second player
+        let linkIndex=formation[secondPlayerIndex].links.findIndex(link => link.position === formation[playerIndex].fieldPosition)
+        formation[secondPlayerIndex].links[linkIndex].chemistry=linkChemistry
+    })
 }
 
-const rating = (state = false, action) => {
-    switch(action.type) {
-        case 'PLAYER_ADDED':
-            return !state
-        
-        case 'PLAYER_UPDATED':
-            return !state
+const updateChemistry = (formation) => {
+    formation.forEach(player => {
+        if(player.player.position==null) return 0
 
-        default:
-            return state
-    }
+        let baseChemistry = player.player.position===player.fieldPosition? 6 : 3
+
+        let linkChemistry = player.links.reduce((a, b) => a + (b['chemistry'] || 0), 0);
+
+        player.chemistry=baseChemistry+linkChemistry
+    })
 }
 
+//console.log(`la química del ${state[playerIndex].fieldPosition} con ${state[secondPlayerIndex].fieldPosition} es ${linkChemistry}`)
 
 const start = (state = false, action) => {
     switch(action.type) {
         case 'START_DRAFT':
             return true
         
-        case 'RESET_DRAFT':
-            return false
-
         default:
             return state
     }
@@ -46,14 +50,13 @@ const start = (state = false, action) => {
 const formation = (state = [], action) => {
     switch(action.type) {
         case 'START_DRAFT':
-            return state=[...action.payload]
+            state=[...action.payload]
+            return state
         
-        case 'RESET_DRAFT':
-            return state=[]
-        
-        case 'RIP': 
-            state[0].links[0].chemistry=2
-            state[0].links[1].chemistry=2
+        case 'PLAYER_UPDATED':
+            state[action.payload.index].player= {...action.payload.player}
+            calculateChemistry(state, action.payload.index)  
+            updateChemistry(state)
             return [...state]
 
         default:
@@ -62,10 +65,13 @@ const formation = (state = [], action) => {
 }
 
 const rootReducer = combineReducers({
-    chemistry: chemistry,
-    rating: rating,
     hasStarted: start,
     formation: formation
 })
 
-export default rootReducer
+export default (state, action) => (
+    action.type === 'RESET_DRAFT'
+        ? rootReducer({}, {})
+        : rootReducer(state, action)
+)
+
