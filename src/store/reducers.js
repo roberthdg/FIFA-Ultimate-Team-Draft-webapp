@@ -55,12 +55,14 @@ export default (state, action) => (
 function calculateChemistry(formation, playerIndex) {
 
     formation[playerIndex].links.forEach(link => {
-        let secondPlayerIndex = formation.findIndex(player => player.fieldPosition === link.position);
 
+        let secondPlayerIndex = link.positionIndex
         let player1 = formation[playerIndex].player
         let player2 = formation[secondPlayerIndex].player
+        
         if(player2.position==null) return null
 
+        //compare players to calculate chemistry
         let linkChemistry = 0
         linkChemistry+= player1.nation===player2.nation? 1 : 0
         linkChemistry+= player1.league===player2.league? 1 : 0
@@ -69,8 +71,9 @@ function calculateChemistry(formation, playerIndex) {
         //set chemistry of added player
         link.chemistry = linkChemistry
  
-        //update chemistry of linked players
-        let linkIndex=formation[secondPlayerIndex].links.findIndex(link => link.position === formation[playerIndex].fieldPosition)
+        //update chemistry of linked player
+        let linkIndex=formation[secondPlayerIndex].links
+            .findIndex(link => link.positionIndex === playerIndex)
         formation[secondPlayerIndex].links[linkIndex].chemistry=linkChemistry
     })
 

@@ -7,96 +7,96 @@ const PLAYER_DATA = {
     cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
 }
 
-//const POSITION_DATA = {}
+//const POSITION_DATA_= {}
 
 const formation442 = [
     { 
         fieldPosition: 'GK',
         player: PLAYER_DATA,
-        links: [{position:'RCB', chemistryLine: '70', chemistry: null}, 
-                {position:'LCB', chemistryLine:'110', chemistry: null}],
+        links: [{positionIndex: 2, chemistryLine: '70', chemistry: null}, 
+                {positionIndex: 3, chemistryLine:'110', chemistry: null}],
         chemistry: 0
     },
     {   
         fieldPosition: 'RB',
         player: PLAYER_DATA,
-        links: [{position:'RCB', chemistryLine:'180', chemistry: null}, 
-                {position:'RM', chemistryLine:'90', chemistry: null}],
+        links: [{positionIndex: 2, chemistryLine:'180', chemistry: null}, 
+                {positionIndex: 5, chemistryLine:'90', chemistry: null}],
         chemistry: 0
     },
     {   
         fieldPosition: 'RCB',
         player: PLAYER_DATA,
-        links: [{position:'LCB', chemistryLine:'180', chemistry: null}, 
-                {position:'RCM', chemistryLine:'90', chemistry: null}, 
-                {position:'RB', chemistryLine: null, chemistry: null}, 
-                {position:'GK', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 3, chemistryLine:'180', chemistry: null}, 
+                {positionIndex: 6, chemistryLine:'90', chemistry: null}, 
+                {positionIndex: 0, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 1, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     {   
         fieldPosition: 'LCB',
         player: PLAYER_DATA,
-        links: [{position:'LCM', chemistryLine: '90', chemistry: null},
-                {position:'LB', chemistryLine: '180', chemistry: null}, 
-                {position:'GK', chemistryLine: null, chemistry: null}, 
-                {position:'RCB', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 7, chemistryLine: '90', chemistry: null},
+                {positionIndex: 4, chemistryLine: '180', chemistry: null}, 
+                {positionIndex: 0, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 2, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     {   
         fieldPosition: 'LB',
         player: PLAYER_DATA,
-        links : [{position:'LM', chemistryLine:'90', chemistry: null}, 
-                 {position:'LCB', chemistryLine: null, chemistry: null}],
+        links : [{positionIndex: 8, chemistryLine: '90', chemistry: null}, 
+                 {positionIndex: 3, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'RM',
         player: PLAYER_DATA,
-        links: [{position:'RST', chemistryLine: '135', chemistry: null}, 
-                {position:'RCM', chemistryLine: '180', chemistry: null}, 
-                {position:'RB', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 9, chemistryLine: '135', chemistry: null}, 
+                {positionIndex: 6, chemistryLine: '180', chemistry: null}, 
+                {positionIndex: 1, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'RCM',
         player: PLAYER_DATA,
-        links: [{position:'LCM', chemistryLine: '180', chemistry: null}, 
-                {position:'RST', chemistryLine: '90', chemistry: null}, 
-                {position:'RCB', chemistryLine: null, chemistry: null}, 
-                {position:'RM', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 7, chemistryLine: '180', chemistry: null}, 
+                {positionIndex: 9, chemistryLine: '90', chemistry: null}, 
+                {positionIndex: 2, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 5, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'LCM',
         player: PLAYER_DATA,
-        links: [{position:'LM', chemistryLine: '180', chemistry: null}, 
-                {position:'LST', chemistryLine: '90', chemistry: null}, 
-                {position:'RCM', chemistryLine: null, chemistry: null}, 
-                {position:'LCB', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 8, chemistryLine: '180', chemistry: null}, 
+                {positionIndex: 10, chemistryLine: '90', chemistry: null}, 
+                {positionIndex: 6, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 3, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'LM',
         player: PLAYER_DATA,
-        links: [{position:'LST', chemistryLine:'45', chemistry: null}, 
-                {position:'LCM', chemistryLine: null, chemistry: null}, 
-                {position:'LB', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 10, chemistryLine:'45', chemistry: null}, 
+                {positionIndex: 7, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 4, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'RST',
         player: PLAYER_DATA,
-        links: [{position:'LST', chemistryLine: '180', chemistry: null}, 
-                {position:'RM', chemistryLine: null, chemistry: null}, 
-                {position:'RCM', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 10, chemistryLine: '180', chemistry: null}, 
+                {positionIndex: 5, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 6, chemistryLine: null, chemistry: null}],
         chemistry: 0
     },
     { 
         fieldPosition: 'LST',
         player: PLAYER_DATA,
-        links: [{position:'LM', chemistryLine: null, chemistry: null}, 
-                {position:'LCM', chemistryLine: null, chemistry: null}, 
-                {position:'RST', chemistryLine: null, chemistry: null}],
+        links: [{positionIndex: 7, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 8, chemistryLine: null, chemistry: null}, 
+                {positionIndex: 9, chemistryLine: null, chemistry: null}],
         chemistry: 0
     }    
 ]
