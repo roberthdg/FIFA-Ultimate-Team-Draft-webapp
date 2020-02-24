@@ -7,8 +7,6 @@ const PLAYER_DATA = {
     cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
 }
 
-//const POSITION_DATA_= {}
-
 const formation442 = [
     { 
         fieldPosition: 'GK',
@@ -25,7 +23,7 @@ const formation442 = [
         chemistry: 0
     },
     {   
-        fieldPosition: 'RCB',
+        fieldPosition: 'CB',
         player: PLAYER_DATA,
         links: [{positionIndex: 3, chemistryLine:'180', chemistry: null}, 
                 {positionIndex: 6, chemistryLine:'90', chemistry: null}, 
@@ -34,7 +32,7 @@ const formation442 = [
         chemistry: 0
     },
     {   
-        fieldPosition: 'LCB',
+        fieldPosition: 'CB',
         player: PLAYER_DATA,
         links: [{positionIndex: 7, chemistryLine: '90', chemistry: null},
                 {positionIndex: 4, chemistryLine: '180', chemistry: null}, 
@@ -58,7 +56,7 @@ const formation442 = [
         chemistry: 0
     },
     { 
-        fieldPosition: 'RCM',
+        fieldPosition: 'CM',
         player: PLAYER_DATA,
         links: [{positionIndex: 7, chemistryLine: '180', chemistry: null}, 
                 {positionIndex: 9, chemistryLine: '90', chemistry: null}, 
@@ -67,7 +65,7 @@ const formation442 = [
         chemistry: 0
     },
     { 
-        fieldPosition: 'LCM',
+        fieldPosition: 'CM',
         player: PLAYER_DATA,
         links: [{positionIndex: 8, chemistryLine: '180', chemistry: null}, 
                 {positionIndex: 10, chemistryLine: '90', chemistry: null}, 
@@ -84,7 +82,7 @@ const formation442 = [
         chemistry: 0
     },
     { 
-        fieldPosition: 'RST',
+        fieldPosition: 'ST',
         player: PLAYER_DATA,
         links: [{positionIndex: 10, chemistryLine: '180', chemistry: null}, 
                 {positionIndex: 5, chemistryLine: null, chemistry: null}, 
@@ -92,7 +90,7 @@ const formation442 = [
         chemistry: 0
     },
     { 
-        fieldPosition: 'LST',
+        fieldPosition: 'ST',
         player: PLAYER_DATA,
         links: [{positionIndex: 7, chemistryLine: null, chemistry: null}, 
                 {positionIndex: 8, chemistryLine: null, chemistry: null}, 
@@ -108,6 +106,4 @@ const formation343 = []
 const formationData = [formation442, formation433, formation343]
 
 export default formationData
-
-
 

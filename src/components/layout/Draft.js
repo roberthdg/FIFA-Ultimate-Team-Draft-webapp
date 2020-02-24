@@ -9,8 +9,8 @@ function Draft()  {
     return (
 
       <div className="flex">
-        <div className="flex-item"> <Field /> </div>
-        <div className="flex-item centered"> <Info /> </div>
+        <div className="flexItem"> <Field /> </div>
+        <div className="flexItem centered"> <Info /> </div>
       </div>
       
     )

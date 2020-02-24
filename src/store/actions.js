@@ -11,15 +11,17 @@ export const resetDraft = () =>{
     };
 };
 
-export const openModal = () =>{
+export const openModal = (index) =>{
     return {
         type:"OPEN_MODAL",
+        payload: index
     };
 };
 
-export const closeModal = () =>{
+export const selectPlayer = (index) =>{
     return {
-        type:"CLOSE_MODAL",
+        type:"SELECT_PLAYER",
+        index: index
     };
 };
 

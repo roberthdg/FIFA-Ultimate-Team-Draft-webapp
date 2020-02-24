@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Link from './Link'
 import jugadores from '../../data/jugadores'
-import {updatePlayer} from '../../store/actions.js';
+import {updatePlayer, openModal, selectPlayer} from '../../store/actions.js';
 import {useDispatch, connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -20,24 +20,21 @@ const Player = (props) => {
     return playerData.links.map(link => link.chemistryLine!=null ? 
       <Link chemistry={link.chemistry}
             chemistryLine={link.chemistryLine} 
-            key={playerData.player.position+link.position}
+            key={playerData.player.position+link.positionIndex}
       /> : null
     ) 
   }
 
-  const openModal = () => {
-    dispatch(updatePlayer(jugadores, props.index))
-  }
-
   return (
     <>  
-      <div id="player" className="grid-item">
+      <div id="player" className="gridItem">
         <img 
           src={playerData.player.cardImage}
-          onClick={() => openModal()}
-          className="player-card"
+          onClick={() => dispatch(openModal(props.index))}
+          className="playerCard"
           alt="Player card"
         />
+        {playerData.player.position!=null? <p className="playerChemistry">Chem: {playerData.chemistry}</p> : null}
         {renderChemistryLinks()}
       </div>
     </>

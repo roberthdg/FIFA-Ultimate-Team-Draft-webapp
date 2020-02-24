@@ -30,7 +30,7 @@ body {
 }
 
 #bench {
-    color:pink;
+    color:rgb(89, 250, 250);
     font-weight: bolder;
 }
 
@@ -57,7 +57,7 @@ body {
     flex-wrap:wrap;
   }
 
-.flex-item {
+.flexItem {
     width: 50%;
 }
 
@@ -65,19 +65,27 @@ body {
     flex-direction: row-reverse;
 }
 
-.grid-item {
+.gridItem {
     width: 23vh;
     height: 23vh;
 }
 
-.player-card {
+.playerCard {
     position:absolute;
-    width: 16vh;
-    height: 21vh;
+    width: 18vh;
+    height: 24vh;
     margin: -6vh  -4vh;
-    z-index: 902;
+    z-index: 900;
 }
 
-.player-card:hover {
-    transform: scale(1.2);
+.playerCard:hover {
+    transform: scale(1.15);
+}
+
+.playerChemistry {
+    position: absolute;
+    margin: 9vh 1vh;
+    z-index: 901;
+    font-size: 2vh;
+    color:#65c9cf;
 }

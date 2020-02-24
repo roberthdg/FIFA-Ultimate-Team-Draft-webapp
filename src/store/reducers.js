@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { roleData } from './../data/positions'
 
 const startReducer = (state = false, action) => {
     switch(action.type) {
@@ -32,7 +33,7 @@ const modalReducer = (state=false, action) => {
         case 'OPEN_MODAL':
             return true
 
-        case 'CLOSE_MODAL':
+        case 'UPDATE_PLAYER':
             return false
         
         default:
@@ -40,9 +41,25 @@ const modalReducer = (state=false, action) => {
     }
 }
 
+const draftReducer = (state=null, action) => {
+    switch(action.type) {
+
+        case 'OPEN_MODAL':
+            return action.payload
+            
+        case 'UPDATE_PLAYER':
+            return null
+
+        default:
+            return state
+    }
+}
+
+
 const rootReducer = combineReducers({
     hasStarted: startReducer,
-    isModalOpen: modalReducer,
+    modalIsOpen: modalReducer,
+    draftIndex: draftReducer,
     formation: formationReducer
 })
 
@@ -79,14 +96,36 @@ function calculateChemistry(formation, playerIndex) {
 
 }
 
+function getRole(data, position) {
+    return Object.keys(data).find(key => data[key].includes(position));
+}
+
 function updateChemistry(formation) {
 
     formation.forEach(player => {
         if(player.player.position==null) return 0
 
-        let baseChemistry = player.player.position===player.fieldPosition? 6 : 3
+        //calculate base chemistry
+        let baseChemistry
 
-        let linkChemistry = player.links.reduce((a, b) => a + (b['chemistry'] || 0), 0);
+        if(player.player.position===player.fieldPosition) baseChemistry = 6
+
+        else if(getRole(roleData, player.player.position)===getRole(roleData, player.fieldPosition)) baseChemistry = 3
+
+        else baseChemistry = 0
+
+        //calculate extra chemistry
+        let totalLinks=player.links.length*2
+        let totalLinksChemistry = player.links.reduce((a, b) => a + (b['chemistry'] || 0), 0);
+        let linkChemistry
+        
+        if(totalLinksChemistry<totalLinks/4) linkChemistry = 0
+
+        else if(totalLinksChemistry<=totalLinks/2) linkChemistry = 1
+
+        else if(totalLinksChemistry<=totalLinks) linkChemistry= baseChemistry===0 ? 1 : 3
+
+        else linkChemistry= baseChemistry===0 ? 2 : 4
 
         player.chemistry=baseChemistry+linkChemistry
     })
