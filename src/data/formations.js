@@ -283,9 +283,7 @@ const formation343 = [
         chemistry: 0
     }    
 ]
-
     
-const formationData = [formation442, formation433, formation343]
+export const formationData = [formation442, formation433, formation343]
 
-export default formationData
-
+export const indexFormationData = [{'4-4-2': [1,5,9]}, {'4-3-3': [1,5,8]}, {'3-4-3': [1,4,8]}] 

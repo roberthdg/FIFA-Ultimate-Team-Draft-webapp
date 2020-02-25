@@ -1,7 +1,8 @@
-export const startDraft = (formation) =>{
+export const startDraft = (formation, formationIndex) =>{
     return {
         type:"START_DRAFT",
-        payload: formation
+        payload: formation,
+        index: formationIndex
     };
 };
 
@@ -11,26 +12,36 @@ export const resetDraft = () =>{
     };
 };
 
-export const openModal = (index) =>{
+export const openModal = (playerIndex) =>{
     return {
         type:"OPEN_MODAL",
-        payload: index
+        payload: playerIndex
     };
 };
 
-export const selectPlayer = (index) =>{
+export const selectPlayer = (playerIndex) =>{
     return {
         type:"SELECT_PLAYER",
-        index: index
+        index: playerIndex
     };
 };
 
-export const updatePlayer = (player, index) =>{
+export const swapPlayer = (draggedPlayer, targetPlayer) =>{
+    return {
+        type:"SWAP_PLAYER",
+        payload: {
+            firstPlayer: draggedPlayer,
+            secondPlayer: targetPlayer 
+        }
+    };
+};
+
+export const updatePlayer = (player, playerIndex) =>{
     return {
         type:"UPDATE_PLAYER",
         payload: {
             player:player,
-            index:index
+            index:playerIndex
         }
     };
 };

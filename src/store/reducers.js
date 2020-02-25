@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { roleData } from './../data/positions'
 
-const startReducer = (state = false, action) => {
+const startDraftReducer = (state = false, action) => {
     switch(action.type) {
         case 'START_DRAFT':
             return true
@@ -11,10 +11,10 @@ const startReducer = (state = false, action) => {
     }
 }
 
-const squadReducer = (state=null, action) => {
+const formationIndexReducer = (state=null, action) => {
     switch(action.type) {
         case 'START_DRAFT':
-            return action.payload
+            return action.index 
         
         default:
             return state
@@ -32,6 +32,36 @@ const formationReducer = (state = [], action) => {
             calculateChemistry(state, action.payload.index)  
             updateChemistry(state)
             return [...state]
+        
+        case 'SWAP_PLAYER':
+            let firstPlayer = state[action.payload.firstPlayer].player
+            let secondPlayer = state[action.payload.secondPlayer].player
+
+            state[action.payload.firstPlayer].player = {...secondPlayer}
+            state[action.payload.secondPlayer].player = {...firstPlayer}
+
+            calculateChemistry(state, action.payload.firstPlayer) 
+            calculateChemistry(state, action.payload.secondPlayer) 
+            updateChemistry(state)
+
+            return [...state]
+
+        default:
+            return state
+    }
+}
+
+const playerReducer = (state=null, action) => {
+    switch(action.type) {
+
+        case 'OPEN_MODAL':
+            return action.payload
+
+        case 'SELECT_PLAYER':
+            return action.index
+            
+        case 'UPDATE_PLAYER':
+            return null
 
         default:
             return state
@@ -51,15 +81,11 @@ const modalReducer = (state=false, action) => {
     }
 }
 
-const draftReducer = (state=null, action) => {
+const draftCountReducer = (state = 0, action) => {
     switch(action.type) {
-
-        case 'OPEN_MODAL':
-            return action.payload
-            
         case 'UPDATE_PLAYER':
-            return null
-
+            return state=state+1
+        
         default:
             return state
     }
@@ -67,10 +93,12 @@ const draftReducer = (state=null, action) => {
 
 
 const rootReducer = combineReducers({
-    hasStarted: startReducer,
+    draftStarted: startDraftReducer,
+    draftCount: draftCountReducer,
     modalIsOpen: modalReducer,
-    draftIndex: draftReducer,
-    formation: formationReducer
+    selectedPlayer: playerReducer,
+    formationIndex: formationIndexReducer,
+    formation: formationReducer,
 })
 
 export default (state, action) => (

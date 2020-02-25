@@ -8,13 +8,15 @@ import  { useSelector } from 'react-redux'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
-  const hasStarted = useSelector(state => state.hasStarted)
+
+  const draftStarted = useSelector(state => state.draftStarted)
+  
   return (
     <>
     <Router>
       <Header />
       <Switch>
-        <Route path="/" exact component={ hasStarted? Draft : Start }/>
+        <Route path="/" exact component={ draftStarted? Draft : Start }/>
         <Route path="/leaderboard" component={Leaderboard}/>
         <Route path="/rules" component={Rules}/>
       </Switch>

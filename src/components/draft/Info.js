@@ -4,7 +4,8 @@ import {resetDraft} from '../../store/actions.js';
 
 const mapStateToProps = (state) => {
     return {
-        formation: state.formation
+        formation: state.formation,
+        formationIndex: state.formationIndex
     }
 }
 
@@ -18,11 +19,11 @@ function Info(props)  {
 
     return (
         <div id="bench"> 
-            <p> Formación: </p>
+            <p> Formación: {Object.keys(props.formationIndex)[0]}</p>
             <p> Química: {chemistry} </p>
             <p> Rating: {Math.round(averageRating)} </p>
             <p><button onClick={() => dispatch(resetDraft())}>Reset</button> </p>
-            <p><button onClick={() => console.log(JSON.stringify(props.formation))}>log</button> </p>
+            <p><button onClick={() => console.log(JSON.stringify(props.formationIndex))}>log</button> </p>
         </div>
     )
 }

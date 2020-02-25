@@ -1,18 +1,38 @@
 import React, {useState, useEffect} from 'react'
 import Link from './Link'
-import jugadores from '../../data/jugadores'
-import {updatePlayer, openModal, selectPlayer} from '../../store/actions.js';
+import {openModal, selectPlayer, swapPlayer} from '../../store/actions.js';
 import {useDispatch, connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
+  
     return {
-        formation: state.formation
+        formation: state.formation,
+        draftCount: state.draftCount,
+        selectedPlayer: state.selectedPlayer
     }
 }
 
 const Player = (props) => {
 
   const dispatch = useDispatch();
+  
+  const dragStart = (id) => {
+    dispatch(selectPlayer(id))
+    let img = document.getElementById("img"+id)
+    let chem = document.getElementById("chem"+id)
+    setTimeout(()=> {
+      chem.style.display = "none"
+      img.classList.remove("transform")
+      img.src= process.env.PUBLIC_URL + '/img/select_player_card.png'}, 0);  
+  }
+
+  const dragEnd = () => {
+    let img = document.getElementById("img"+props.selectedPlayer)
+    let chem = document.getElementById("chem"+props.selectedPlayer)
+    chem.style.display = "block"
+    img.classList.add("transform")
+    img.src= props.formation[props.selectedPlayer].player.cardImage 
+  }
 
   let playerData = props.formation[props.index]
 
@@ -28,13 +48,22 @@ const Player = (props) => {
   return (
     <>  
       <div id="player" className="gridItem">
-        <img 
-          src={playerData.player.cardImage}
-          onClick={() => dispatch(openModal(props.index))}
-          className="playerCard"
+        <img
+          id={"img"+props.index}
+          className="playerCard transform"
           alt="Player card"
+          src={playerData.player.cardImage}
+          onClick={playerData.player.position==null ? () => dispatch(openModal(props.index)) : null}
+
+          //allow player swaps after after draft completion
+          draggable={props.draftCount<11 ? false : true}
+          onDragStart={() => dragStart(props.index)}
+          onDragOver={(event) => event.preventDefault()}
+          onDragEnd={() => dragEnd()}
+          onDrop={() => dispatch(swapPlayer(props.selectedPlayer, props.index))}
         />
-        {playerData.player.position!=null? <p className="playerChemistry">Chem: {playerData.chemistry}</p> : null}
+
+        {playerData.player.position!=null? <p id={"chem"+props.index} className="playerChemistry">Chem: {playerData.chemistry}</p> : null}
         {renderChemistryLinks()}
       </div>
     </>

@@ -13,8 +13,9 @@ const DraftPlayer = (props) => {
       <div id="player" className="flexItem">
         <img 
           src={props.playerData.cardImage}
+          draggable={false}
           onClick={() => selectDraftPlayer()}
-          className="playerCard"
+          className="playerCard transform"
           alt="Player card"
         />
       </div>

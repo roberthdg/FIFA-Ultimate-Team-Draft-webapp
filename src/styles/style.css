@@ -76,11 +76,11 @@ body {
     height: 24vh;
     margin: -6vh  -4vh;
     z-index: 900;
+    cursor: pointer;
 }
 
-.playerCard:hover {
+.transform:hover {
     transform: scale(1.15);
-    cursor: pointer;
 }
 
 .formationCard {
