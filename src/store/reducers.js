@@ -11,6 +11,16 @@ const startReducer = (state = false, action) => {
     }
 }
 
+const squadReducer = (state=null, action) => {
+    switch(action.type) {
+        case 'START_DRAFT':
+            return action.payload
+        
+        default:
+            return state
+    }
+}
+
 const formationReducer = (state = [], action) => {
     switch(action.type) {
         case 'START_DRAFT':

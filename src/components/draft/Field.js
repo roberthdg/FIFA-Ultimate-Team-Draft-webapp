@@ -22,10 +22,16 @@ const Field = (props) => {
 
         let players = props.formation.map( (player, i) => <Player key={i} index={i}/>)
 
+        const formation433=[1,5,8]
+
+        const formation442=[1,5,9]
+
+        const formation343=[1,4,8]
+
         return [
-            <div key="attack" className="flex grid"> {players.slice(9,11)} </div>,
-            <div key="midfield" className="flex grid"> {players.slice(5,9)} </div>,
-            <div key="defense" className="flex grid"> {players.slice(1,5)} </div>,
+            <div key="attack" className="flex grid"> {players.slice(8,11)} </div>,
+            <div key="midfield" className="flex grid"> {players.slice(4,8)} </div>,
+            <div key="defense" className="flex grid"> {players.slice(1,4)} </div>,
             <div key="goalkeeper" className="flex grid"> {players.slice(0,1)} </div>
         ]
     }
