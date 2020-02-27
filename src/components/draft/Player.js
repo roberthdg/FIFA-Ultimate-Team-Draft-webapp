@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Link from './Link'
 import {openModal, selectPlayer, swapPlayer} from '../../store/actions.js';
 import {useDispatch, connect} from 'react-redux';
@@ -63,7 +63,10 @@ const Player = (props) => {
           onDrop={() => dispatch(swapPlayer(props.selectedPlayer, props.index))}
         />
 
-        {playerData.player.position!=null? <p id={"chem"+props.index} className="playerChemistry">Chem: {playerData.chemistry}</p> : null}
+        {playerData.player.position!=null
+        ? <p id={"chem"+props.index} className="playerChemistry">Chem: {playerData.chemistry}</p> 
+        : <p className="playerPosition"> {playerData.fieldPosition}</p> }
+        
         {renderChemistryLinks()}
       </div>
     </>

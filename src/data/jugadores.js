@@ -17,15 +17,15 @@ const jugadores = [
         rating: 92,
         cardImage: process.env.PUBLIC_URL + '/img/suarez.png'
     },
-    {
-        position:'ST',
-        role:'attack',
-        nation:'Portugal',
-        league:'Serie A',
-        club:'Juventus',
-        rating: 94,
-        cardImage: process.env.PUBLIC_URL + '/img/ronaldo.png'
-    },
+    // {
+    //     position:'ST',
+    //     role:'attack',
+    //     nation:'Portugal',
+    //     league:'Serie A',
+    //     club:'Juventus',
+    //     rating: 94,
+    //     cardImage: process.env.PUBLIC_URL + '/img/ronaldo.png'
+    // },
         {
         position:'CB',
         role:'midfield',

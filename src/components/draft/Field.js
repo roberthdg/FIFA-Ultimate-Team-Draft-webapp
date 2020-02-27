@@ -41,10 +41,10 @@ const Field = (props) => {
         return  (
             <Modal
                 isOpen={props.modalIsOpen}
-                style={modalStyle}>    
-                <div>     
-                    <h2>Select a player</h2>
-                    <div className="grid">    
+                style={modalStyle}> 
+                   <h2>Select a player</h2> 
+                <div className="box">
+                    <div className="flexModal">     
                         {playerData}
                     </div>
                 </div>

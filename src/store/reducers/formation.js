@@ -1,17 +1,6 @@
-import { combineReducers } from 'redux'
-import { roleData } from './../data/positions'
+import { roleData } from '../../data/positions'
 
-const startDraftReducer = (state = false, action) => {
-    switch(action.type) {
-        case 'START_DRAFT':
-            return true
-        
-        default:
-            return state
-    }
-}
-
-const formationIndexReducer = (state=null, action) => {
+export const formationIndexReducer = (state=null, action) => {
     switch(action.type) {
         case 'START_DRAFT':
             return action.index 
@@ -21,7 +10,7 @@ const formationIndexReducer = (state=null, action) => {
     }
 }
 
-const formationReducer = (state = [], action) => {
+export const formationReducer = (state = [], action) => {
     switch(action.type) {
         case 'START_DRAFT':
             state=[...action.payload]
@@ -50,62 +39,6 @@ const formationReducer = (state = [], action) => {
             return state
     }
 }
-
-const playerReducer = (state=null, action) => {
-    switch(action.type) {
-
-        case 'OPEN_MODAL':
-            return action.payload
-
-        case 'SELECT_PLAYER':
-            return action.index
-            
-        case 'UPDATE_PLAYER':
-            return null
-
-        default:
-            return state
-    }
-}
-
-const modalReducer = (state=false, action) => {
-    switch(action.type) {
-        case 'OPEN_MODAL':
-            return true
-
-        case 'UPDATE_PLAYER':
-            return false
-        
-        default:
-            return state
-    }
-}
-
-const draftCountReducer = (state = 0, action) => {
-    switch(action.type) {
-        case 'UPDATE_PLAYER':
-            return state=state+1
-        
-        default:
-            return state
-    }
-}
-
-
-const rootReducer = combineReducers({
-    draftStarted: startDraftReducer,
-    draftCount: draftCountReducer,
-    modalIsOpen: modalReducer,
-    selectedPlayer: playerReducer,
-    formationIndex: formationIndexReducer,
-    formation: formationReducer,
-})
-
-export default (state, action) => (
-    action.type === 'RESET_DRAFT'
-        ? rootReducer({}, {})
-        : rootReducer(state, action)
-)
 
 function calculateChemistry(formation, playerIndex) {
 
