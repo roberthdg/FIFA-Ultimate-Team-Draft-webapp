@@ -26,11 +26,11 @@ export const selectPlayer = (playerIndex) =>{
     };
 };
 
-export const swapPlayer = (draggedPlayer, targetPlayer) =>{
+export const swapPlayer = (selectedPlayer, targetPlayer) =>{
     return {
         type:"SWAP_PLAYER",
         payload: {
-            firstPlayer: draggedPlayer,
+            firstPlayer: selectedPlayer,
             secondPlayer: targetPlayer 
         }
     };

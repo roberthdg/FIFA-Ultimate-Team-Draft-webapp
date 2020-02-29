@@ -22,6 +22,9 @@ export const modalReducer = (state=false, action) => {
 
         case 'UPDATE_PLAYER':
             return false
+
+        case 'SWAP_PLAYER':
+            return false
         
         default:
             return state

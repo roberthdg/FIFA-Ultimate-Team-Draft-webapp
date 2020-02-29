@@ -11,7 +11,8 @@ export const modalStyle = {
       backgroundImage:'url("/img/modal.png")',
       backgroundSize:'150%',
       backgroundRepeat:'no-repeat',
-      color:'#fff'
+      color:'#fff',
+      maxWidth: '90vw'
     },
     overlay:{
         zIndex: 1000,

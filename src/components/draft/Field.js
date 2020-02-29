@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
         formation: state.formation,
         modalIsOpen: state.modalIsOpen,
         selectedPlayer: state.selectedPlayer,
-        formationIndex: state.formationIndex 
+        formationIndex: state.formationIndex,
+        draftCount: state.draftCount
     }
 }
 
@@ -35,16 +36,19 @@ const Field = (props) => {
 
     const renderModal = () =>  {
 
-        // is  draftCompleted?
-        let playerData = jugadores.map((player, i) => <DraftPlayer key={i} index={props.selectedPlayer} playerData={player}/>)
+        let playerData = props.draftCount<2
+        ?  jugadores.map((player, i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
+        :  props.formation.map((player, i) => props.selectedPlayer!==i? <DraftPlayer key={i} type="swap" index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
 
+        console.log(playerData)
+        
         return  (
             <Modal
                 isOpen={props.modalIsOpen}
                 style={modalStyle}> 
                    <h2>Select a player</h2> 
                 <div className="box">
-                    <div className="flexModal">     
+                    <div className={props.draftCount<2? "flexModal" : "flexModal padding"}>     
                         {playerData}
                     </div>
                 </div>
