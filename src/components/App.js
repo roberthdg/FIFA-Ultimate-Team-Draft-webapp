@@ -20,7 +20,6 @@ function App() {
         <Route path="/leaderboard" component={Leaderboard}/>
         <Route path="/rules" component={Rules}/>
       </Switch>
-      {/* <Footer /> */}
     </Router>
     </>
   );

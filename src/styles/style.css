@@ -52,11 +52,11 @@ body {
 #lineup {
     background-image: url('/img/field.png');
     background-repeat: no-repeat;
-    background-size:  100vh 90vh;
-    background-position:  5vh  5vh;
+    background-size:  110vh 99vh;
+    background-position:  1vh  5vh;
     flex: 2 0 0;
     font-weight: bolder;
-    height: 90vh;
+    height: 110vh;
     width: 110vh;
 }
 
@@ -81,7 +81,7 @@ body {
 
 .gridItem {
     width: 23vh;
-    height: 23vh;
+    height: 24vh;
 }
 
 .playerCard {
@@ -261,6 +261,13 @@ body {
 
     .formation {
         margin: 2vw 125%;
+    }
+    
+    .infoCard {
+        max-width: 90vw;
+        margin: 0 auto;
+        margin-bottom: 5vw;
+        
     }
 }
 

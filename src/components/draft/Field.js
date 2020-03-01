@@ -36,19 +36,19 @@ const Field = (props) => {
 
     const renderModal = () =>  {
 
-        let playerData = props.draftCount<2
+        let playerData = props.draftCount<11
         ?  jugadores.map((player, i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
-        :  props.formation.map((player, i) => props.selectedPlayer!==i? <DraftPlayer key={i} type="swap" index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
+        :  props.formation.map((player, i) => props.selectedPlayer!==i? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
 
-        console.log(playerData)
+        let title = props.draftCount<11? <h2>Select a player</h2> : <h2>Swap positions</h2> 
         
         return  (
             <Modal
                 isOpen={props.modalIsOpen}
                 style={modalStyle}> 
-                   <h2>Select a player</h2> 
+                {title}
                 <div className="box">
-                    <div className={props.draftCount<2? "flexModal" : "flexModal padding"}>     
+                    <div className={props.draftCount<11? "flexModal" : "flexModal padding"}>     
                         {playerData}
                     </div>
                 </div>

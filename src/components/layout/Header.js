@@ -12,7 +12,6 @@ function Header()  {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <>
         <Navbar className="nav" collapseOnSelect expanded={expanded} expand="lg" bg="dark" variant="dark">
             <Navbar.Brand>
                 <img
@@ -41,7 +40,6 @@ function Header()  {
 
             </Navbar.Collapse>  
         </Navbar>
-      </>
     )
 }
 

@@ -22,7 +22,7 @@ function Info(props)  {
     let starRating = averageRating/20
 
     const submitDraft= () => {
-            return null
+        dispatch(resetDraft())
     }
 
     const renderFooter = () => {
