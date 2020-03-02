@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from './Link'
-import {openModal, selectPlayer, swapPlayer} from '../../store/actions.js';
+import {openModal, selectPlayer, swapPlayer, imgLoaded} from '../../store/actions.js';
 import {useDispatch, connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -52,6 +52,7 @@ const Player = (props) => {
         alt="Player card"
         src={playerData.player.cardImage}
         onClick={() => dispatch(openModal(props.index))}
+        onLoad={() => dispatch(imgLoaded())}
 
         //allow player swaps after after draft completion
         draggable={props.draftCount<11 ? false : true}

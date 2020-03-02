@@ -47,3 +47,11 @@ export const updatePlayer = (player, playerIndex) =>{
 };
 
 
+export const imgLoaded = () =>{
+    return {
+        type:"IS_LOADED"
+    };
+};
+
+
+

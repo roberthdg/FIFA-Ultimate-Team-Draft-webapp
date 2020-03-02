@@ -4,7 +4,7 @@ import {resetDraft} from '../../store/actions.js';
 import { Card } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 import { Progress } from 'react-sweet-progress';
-import "react-sweet-progress/lib/style.css";
+import "../../styles/progressBar.css";
 
 const mapStateToProps = (state) => {
     return {
@@ -53,7 +53,7 @@ function Info(props)  {
                     starRatedColor="yellow"
                     numberOfStars={5}
                     starDimension='4vh'
-                /> 
+                /> <br/> <br/>
                 <Card.Title> 
                     Chemistry 
                 </Card.Title>

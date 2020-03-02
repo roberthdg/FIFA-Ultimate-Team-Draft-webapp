@@ -17,6 +17,10 @@ body {
     color:white;
 }
 
+.loader {
+    margin: 40vh auto
+}
+
 .svg{
     position: absolute;
     height: 25vh;
@@ -196,6 +200,10 @@ body {
         width: 21.5vw;
         height: 28vw;
         margin: 0vh  2vw;
+    }
+
+    .loader {
+        margin: 45vw 37%
     }
     
     .svg{

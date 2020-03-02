@@ -9,8 +9,6 @@ export const startDraftReducer = (state = false, action) => {
     }
 }
 
-
-
 export const draftCountReducer = (state = 0, action) => {
     switch(action.type) {
         case 'UPDATE_PLAYER':
@@ -20,3 +18,14 @@ export const draftCountReducer = (state = 0, action) => {
             return state
     }
 }
+
+export const preloaderReducer = (state = false, action) => {
+    switch(action.type) {
+        case 'IS_LOADED':
+            return true
+        
+        default:
+            return state
+    }
+}
+
