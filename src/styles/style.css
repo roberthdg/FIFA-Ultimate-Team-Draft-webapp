@@ -21,6 +21,12 @@ body {
     margin: 40vh auto
 }
 
+.modalLoader {
+    height: 15vh;
+    width: 15vh;
+    margin: 8vh 8vh
+}
+
 .svg{
     position: absolute;
     height: 25vh;
@@ -204,6 +210,11 @@ body {
 
     .loader {
         margin: 45vw 37%
+    }
+    
+    .modalLoader {
+        margin: 15vw -20vw;
+        position: absolute;
     }
     
     .svg{

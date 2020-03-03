@@ -1,10 +1,11 @@
 const PLAYER_DATA = {
+    role: null,
     position: null,
     nation:null,
     league:null,
     club:null,
     rating:0,
-    cardImage: process.env.PUBLIC_URL + '/img/select_player_card.png'
+    cardImage:'/img/select_player_card.png'
 }
 
 const formation442 = [

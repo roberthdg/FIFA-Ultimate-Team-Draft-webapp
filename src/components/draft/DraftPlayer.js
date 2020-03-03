@@ -4,6 +4,8 @@ import {useDispatch} from 'react-redux';
 
 const DraftPlayer = (props) => {
 
+  const imgSource = 'http://localhost:3030/uploads/'+props.playerData.cardImage
+
   const dispatch = useDispatch();
 
   const selectDraftPlayer = () => {
@@ -15,7 +17,7 @@ const DraftPlayer = (props) => {
   return (
     <div className="playerModalItem">
       <img 
-        src={props.playerData.cardImage}
+        src={imgSource}
         draggable={false}
         onClick={() => selectDraftPlayer()}
         className="playerModalCard transform"

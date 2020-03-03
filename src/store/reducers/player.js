@@ -1,6 +1,6 @@
-export const playerReducer = (state=null, action) => {
-    switch(action.type) {
+export const selectedPlayerReducer = (state=null, action) => {
 
+    switch(action.type) {
         case 'OPEN_MODAL':
             return action.payload
 
@@ -15,18 +15,3 @@ export const playerReducer = (state=null, action) => {
     }
 }
 
-export const modalReducer = (state=false, action) => {
-    switch(action.type) {
-        case 'OPEN_MODAL':
-            return true
-
-        case 'UPDATE_PLAYER':
-            return false
-
-        case 'SWAP_PLAYER':
-            return false
-        
-        default:
-            return state
-    }
-}

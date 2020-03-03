@@ -20,9 +20,8 @@ const chemistryLinesColor = {
 }
 
 const Link = (props) =>  {
-
+  
   let coordenates=chemistryLinesCoordenates[props.chemistryLine]
-
   let color = chemistryLinesColor[props.chemistry]
 
   return  (

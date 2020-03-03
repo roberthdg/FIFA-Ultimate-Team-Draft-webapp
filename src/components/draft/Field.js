@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 import Loader from 'react-loader-spinner'
 import Player from './Player'
 import DraftPlayer from './DraftPlayer'
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
+import {populateModal} from '../../store/actions.js';
 import Modal from 'react-modal';
 import {modalStyle} from '../../styles/modalStyle'
-import jugadores from '../../data/jugadores';
 
 Modal.setAppElement('#root')
 
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
         isLoaded: state.isLoaded,
         modalIsOpen: state.modalIsOpen,
         selectedPlayer: state.selectedPlayer,
+        draftedPlayers: state.draftedPlayers,
         formationIndex: state.formationIndex,
         draftCount: state.draftCount
     }
@@ -22,17 +24,10 @@ const mapStateToProps = (state) => {
 
 const Field = (props) => {
 
-    const preloader = props.isLoaded ? null 
-    :  <Loader
-            type="Oval"
-            color="white"
-            height={100}
-            width={100}
-            className="loader"
-        />
+    const dispatch = useDispatch();
+    const preloader = props.isLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
 
     const displayFormation = () => {
-        
         let players = props.formation.map( (player, i) => <Player key={i} index={i}/>)
         let gridIndex = Object.values(props.formationIndex)[0] //sets flex grid structure for the formation
         
@@ -45,25 +40,31 @@ const Field = (props) => {
     }   
 
     const renderModal = () =>  {
-
-        let playerData = props.draftCount<11
-        ?  jugadores.map((player, i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
-        :  props.formation.map((player, i) => props.selectedPlayer!==i? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
-
-        let title = props.draftCount<11? <h2>Select a player</h2> : <h2>Swap positions</h2> 
-        
         return  (
-            <Modal
-                isOpen={props.modalIsOpen}
-                style={modalStyle}> 
-                {title}
+            <Modal isOpen={props.modalIsOpen} onAfterOpen={() => getPlayers()} style={modalStyle}> 
+                <h2>{props.draftCount<11? 'Select a player' : 'Swap positions'}</h2>
                 <div className="box">
                     <div className={props.draftCount<11? "flexModal" : "flexModal padding"}>     
-                        {playerData}
+                        {props.draftedPlayers==null
+                        ? <Loader type="Oval" color="white" className="modalLoader"/> 
+                        : props.draftedPlayers}
                     </div>
                 </div>
             </Modal>
         )
+    }
+
+    const getPlayers = () => {
+        if(props.draftCount<11) {
+            axios.get('http://localhost:3030/all').then(res => {
+                let playersData = res.data.map((player,i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
+                dispatch(populateModal(playersData))
+            })
+        } else {
+            let playersData = props.formation.map((player, i) => props.selectedPlayer!==i
+            ? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
+            dispatch(populateModal(playersData))
+        }
     }
 
     return (

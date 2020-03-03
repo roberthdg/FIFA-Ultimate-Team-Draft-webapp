@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { startDraftReducer, draftCountReducer, preloaderReducer } from './draft'
-import { playerReducer, modalReducer } from './player'
+import { selectedPlayerReducer } from './player'
+import { modalReducer, modalPlayersReducer } from './modal'
 import { formationReducer, formationIndexReducer } from './formation'
 
 const rootReducer = combineReducers({
@@ -8,7 +9,8 @@ const rootReducer = combineReducers({
     isLoaded: preloaderReducer,
     draftCount: draftCountReducer,
     modalIsOpen: modalReducer,
-    selectedPlayer: playerReducer,
+    selectedPlayer: selectedPlayerReducer,
+    draftedPlayers: modalPlayersReducer,
     formationIndex: formationIndexReducer,
     formation: formationReducer,
 })

@@ -47,6 +47,14 @@ export const updatePlayer = (player, playerIndex) =>{
 };
 
 
+export const populateModal = (players) =>{
+    return {
+        type: "POPULATE_MODAL",
+        playersData: players
+    };
+};
+
+
 export const imgLoaded = () =>{
     return {
         type:"IS_LOADED"
