@@ -3,10 +3,12 @@ import axios from 'axios';
 import Loader from 'react-loader-spinner'
 import Player from './Player'
 import DraftPlayer from './DraftPlayer'
-import {connect, useDispatch} from 'react-redux';
-import {populateModal} from '../../store/actions.js';
+import { roleData } from '../../data/formations'
+import { connect, useDispatch } from 'react-redux';
+import { populateModal } from '../../store/actions.js';
 import Modal from 'react-modal';
-import {modalStyle} from '../../styles/modalStyle'
+import { modalStyle } from '../../styles/modalStyle'
+
 
 Modal.setAppElement('#root')
 
@@ -56,10 +58,22 @@ const Field = (props) => {
 
     const getPlayers = () => {
         if(props.draftCount<11) {
-            axios.get('http://localhost:3030/all').then(res => {
+            let position = props.formation[props.selectedPlayer].fieldPosition
+            let role = Object.keys(roleData).find(key => roleData[key].includes(position))
+            let draftedPlayers = props.formation.filter((player) => player.player._id!=null).map( i => i.player.cardImage)
+
+            axios.post(process.env.REACT_APP_API_URL+'/draft', {
+                position: position,
+                role: role,
+                draftedPlayers: draftedPlayers
+            })
+            .then(res => {
                 let playersData = res.data.map((player,i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
                 dispatch(populateModal(playersData))
-            })
+                }, error => {
+                    console.log(error);
+                }
+            )
         } else {
             let playersData = props.formation.map((player, i) => props.selectedPlayer!==i
             ? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)

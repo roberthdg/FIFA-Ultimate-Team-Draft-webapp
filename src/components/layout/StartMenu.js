@@ -14,7 +14,7 @@ const StartMenu = () => {
         <Modal
             isOpen={true}
             style={modalStyle}> 
-                <h2>Select a formation</h2> 
+                <h2>Choose a formation</h2> 
             <div className="box">
                 <div className="flexModal formation">
                     <div className="formationItem">

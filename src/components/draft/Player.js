@@ -3,7 +3,7 @@ import Link from './Link'
 import {openModal, selectPlayer, swapPlayer, imgLoaded} from '../../store/actions.js';
 import {useDispatch, connect} from 'react-redux';
 
-const STATIC_URL = 'http://localhost:3030/uploads/'
+const STATIC_URL = process.env.REACT_APP_API_URL+'/uploads/'
 
 const mapStateToProps = (state) => {
     return {

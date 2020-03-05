@@ -284,6 +284,13 @@ const formation343 = [
         chemistry: 0
     }    
 ]
+
+export const roleData = { 
+    'attack': ['ST','RW','LW'], 
+    'midfield': ['LM','CM','RM','CAM','CDM'], 
+    'defense': ['LB','CB','RB'], 
+    'goalkeeper': ['GK'] 
+}
     
 export const formationData = [formation442, formation433, formation343]
 

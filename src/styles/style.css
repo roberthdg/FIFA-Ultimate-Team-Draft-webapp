@@ -6,7 +6,7 @@ body {
 }
 
 .padding {
-    padding-left: 100vh;
+    padding-left: 90vh;
 }
 
 .icon {
@@ -57,6 +57,7 @@ body {
 
 .transform:hover {
     transform: scale(1.15);
+    transition: .2s;
 }
 
 #lineup {
@@ -213,7 +214,7 @@ body {
     }
     
     .modalLoader {
-        margin: 15vw -20vw;
+        margin: 15vw -33%;
         position: absolute;
     }
     
@@ -257,10 +258,9 @@ body {
     }
 
     .padding {
-        padding-left: 120vw;
+        padding-left: 130%;
     }
     
-
     .playerModalCard {
         width: 35vw;
         height: 47vw;

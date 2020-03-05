@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 
 const DraftPlayer = (props) => {
 
-  const imgSource = 'http://localhost:3030/uploads/'+props.playerData.cardImage
+  const imgSource = process.env.REACT_APP_API_URL+'/uploads/'+props.playerData.cardImage
 
   const dispatch = useDispatch();
 

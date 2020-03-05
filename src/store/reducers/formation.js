@@ -1,4 +1,4 @@
-import { roleData } from '../../data/positions'
+import { roleData } from '../../data/formations'
 
 export const formationIndexReducer = (state=null, action) => {
     switch(action.type) {
