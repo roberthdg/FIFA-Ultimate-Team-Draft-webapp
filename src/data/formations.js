@@ -291,6 +291,16 @@ export const roleData = {
     'defense': ['LB','CB','RB'], 
     'goalkeeper': ['GK'] 
 }
+
+export const sibblingPositionsData = {
+    'RW':'RM',
+    'RM':'RW',
+    'LW':'LM',
+    'LM':'LW',
+    'CAM':'CM',
+    'CDM':'CM'
+}
+
     
 export const formationData = [formation442, formation433, formation343]
 
