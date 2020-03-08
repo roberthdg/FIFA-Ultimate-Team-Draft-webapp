@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { startDraft } from '../../store/actions';
 import { formationData, indexFormationData } from '../../data/formations.js';
@@ -10,21 +10,19 @@ const StartDraft = () => {
     const dispatch = useDispatch();
     const formations = JSON.parse(JSON.stringify(formationData))
 
+    useEffect(() => {
+        const img = new Image();
+        img.src = `${process.env.PUBLIC_URL}/img/field.png` // preload field image
+    }, [])
+
     return (
         <Modal
             isOpen={true}
             style={modalStyle}> 
-                <h2>Choose a formation</h2> 
+            <h2>Choose a formation</h2>
+            
             <div className="box">
                 <div className="flexModal formation">
-                    <div className="formationItem">
-                        <img 
-                            src={process.env.PUBLIC_URL+"/img/formations/343.png"}
-                            onClick={() => dispatch(startDraft(formations[2], indexFormationData[2]))}
-                            className="formationCard"
-                            alt="Formation 3-4-3"
-                        />
-                    </div>
                     <div className="formationItem">
                         <img 
                             src={process.env.PUBLIC_URL+"/img/formations/433.png"}
@@ -39,6 +37,14 @@ const StartDraft = () => {
                             onClick={() => dispatch(startDraft(formations[0], indexFormationData[0]))}
                             className="formationCard"
                             alt="Formation 4-4-2"
+                        />
+                    </div>
+                    <div className="formationItem">
+                        <img 
+                            src={process.env.PUBLIC_URL+"/img/formations/343.png"}
+                            onClick={() => dispatch(startDraft(formations[2], indexFormationData[2]))}
+                            className="formationCard"
+                            alt="Formation 3-4-3"
                         />
                     </div>
                 </div>

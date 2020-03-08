@@ -20,7 +20,7 @@ const Player = (props) => {
   let playerData = props.squad[props.index]
   let imgSource = playerData.player.position==null? process.env.PUBLIC_URL : STATIC_URL
   
-  const renderChemistryLinks = () => {
+  function renderChemistryLinks() {
     return playerData.links.map(link => link.chemistryLine!=null 
       ? <Link chemistry={link.chemistry}
             chemistryLine={link.chemistryLine} 
@@ -29,7 +29,7 @@ const Player = (props) => {
     ) 
   }
 
-  const dragStart = (id) => {
+  function dragStart(id) {
     dispatch(selectPlayer(id))
     let img = document.getElementById("img"+id)
     let chem = document.getElementById("chem"+id)
@@ -39,7 +39,7 @@ const Player = (props) => {
       img.src= process.env.PUBLIC_URL + '/img/select_player_card.png'}, 0);  
   }
 
-  const dragEnd = () => {
+  function dragEnd() {
     let img = document.getElementById("img"+props.selectedPlayer)
     let chem = document.getElementById("chem"+props.selectedPlayer)
     chem.style.display = "block"

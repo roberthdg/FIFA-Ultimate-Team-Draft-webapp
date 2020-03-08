@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Header from './layout/Header';
 import Start from './layout/StartDraft';
 import Draft from './layout/Draft';
-import Leaderboard from './layout/Leaderboard';
 import Rules from './layout/Rules';
-import Squad from './layout/Squad';
 import  { useSelector } from 'react-redux'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+const Squad = lazy(() => import('./layout/Squad'));
+const Leaderboard = lazy(() => import('./layout/Leaderboard'));
+const Loading = () => <div>Loading route...</div>;
 
 function App() {
 
@@ -19,9 +20,11 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={ draftStarted? Draft : Start }/>
-        <Route path="/leaderboard" component={Leaderboard}/>
         <Route path="/rules" component={Rules}/>
-        <Route path="/squad/:id" component={Squad}/>
+        <Route path="/leaderboard" component={Leaderboard}/>
+        <Suspense fallback={Loading}>
+          <Route path="/squad/:id" component={Squad}/>
+        </Suspense>
       </Switch>
     </Router>
     </>

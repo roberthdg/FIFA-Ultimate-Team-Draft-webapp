@@ -7,8 +7,9 @@ export const formationReducer = (state=null, action) => {
             return action.index
 
         case 'CHANGE_NAME':
-            state.name=action.name
-            return {...state}
+            let newState = {...state}
+            newState.name=action.name
+            return newState
 
         case 'SHOW_SQUAD':
             return action.formation

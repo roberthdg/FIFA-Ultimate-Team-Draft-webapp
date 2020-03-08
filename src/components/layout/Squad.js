@@ -55,23 +55,20 @@ const Squad = (props) => {
         return  (
             <Card className="infoCard">
                 <Card.Body>
-                    <Card.Title>
-                        Rating: {Math.round(averageRating)}  <br/>
-                    </Card.Title>
+                    <Card.Title> Rating: {Math.round(averageRating)}  <br/> </Card.Title>
+
                     <StarRatings 
                         rating={starRating}
                         starRatedColor="yellow"
                         numberOfStars={5}
-                        starDimension='4vh'
-                    /> <br/> <br/>
-                    <Card.Title> 
-                        Chemistry 
-                    </Card.Title>
+                        starDimension='4vh'/> <br/> <br/>
+                    
+                    <Card.Title> Chemistry </Card.Title>
+
                     <Progress percent={chemistry}/>
                 </Card.Body>
             </Card>
         )
-
     }
 
     return (

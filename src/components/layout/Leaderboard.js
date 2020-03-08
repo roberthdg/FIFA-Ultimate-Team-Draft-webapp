@@ -18,7 +18,7 @@ function Leaderboard()  {
     fetchData();
   }, []);
 
-  const renderTrophy = (rank) => {
+  function renderTrophy(rank) {
     return (
     <img
       alt="FUTdraft trophy"
@@ -29,19 +29,8 @@ function Leaderboard()  {
     )
   }
 
-
-
-  const renderLeaderboard = () => {
-
-    const topRow = <tr className="row" key="top">
-      <td className="cell1"> <strong>Rank</strong> </td>
-      <td className="cell2"> <strong>Squad</strong> </td>
-      <td className="cell3"> <strong>Score</strong> </td>
-    </tr>
-
+ function renderRows() {
     return data.map((squad, i) => (
-      <>
-        {i===0 ? topRow : null}
         <tr className="row" key={squad._id}> 
           <td className="cell1"> 
             {i===0 ? renderTrophy('gold') : null}
@@ -52,15 +41,27 @@ function Leaderboard()  {
           <td className="cell2"><a className="tag" href={'/squad/'+squad._id}> {squad.name} </a></td>
           <td className="cell3">{squad.rating}</td>
         </tr>
-      </>
     ))
+  }
+
+  function renderLeaderboard() {
+    return <table style={{width:'100%'}}>
+      <tbody>
+        <tr className="row">
+          <td className="cell1"> <strong>Rank</strong> </td>
+          <td className="cell2"> <strong>Squad</strong> </td>
+          <td className="cell3"> <strong>Score</strong> </td>
+        </tr>
+        {renderRows()}
+      </tbody>
+    </table>
   }
 
   return (
     <Card className="rulesCard">
       <Card.Header><h3><strong>FUT</strong>draft Top 50</h3></Card.Header>
       <Card.Body>
-        {data===undefined? preloader : renderLeaderboard()}
+      {data===undefined? preloader : renderLeaderboard()}
       </Card.Body>
     </Card>        
   )
