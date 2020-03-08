@@ -304,4 +304,6 @@ export const sibblingPositionsData = {
     
 export const formationData = [formation442, formation433, formation343]
 
-export const indexFormationData = [{'4-4-2': [1,5,9]}, {'4-3-3': [1,5,8]}, {'3-4-3': [1,4,8]}] 
+export const indexFormationData = [{ name: 'Formation 4-4-2', index: {'4-4-2': [1,5,9]} }, 
+    { name: 'Formation 4-3-3', index: {'4-3-3': [1,5,8]} }, 
+    { name: 'Formation 3-4-3', index: {'3-4-3': [1,4,8]} }] 

@@ -1,16 +1,39 @@
-export const modalReducer = (state=false, action) => {
+const initialState = {
+    open: false,
+    hidden: false,
+    type: null
+}
+
+export const modalReducer = (state=initialState, action) => {
+    let newState
     switch(action.type) {
         case 'OPEN_MODAL':
-            return true
+                newState = {...state}
+                newState.open=true;
+                newState.type=action.payload.modalType;
+            return newState
+
+        case 'HIDE_MODAL':
+                newState = {...state}
+                newState.hidden=true;
+            return newState
+
+        case 'SHOW_MODAL':
+                newState = {...state}
+                newState.hidden=false;
+            return newState
 
         case 'UPDATE_PLAYER':
-            return false
+            return initialState
 
         case 'SWAP_PLAYER':
-                return false
+            return initialState
 
         case 'SELECT_PLAYER':
-            return false
+            return initialState
+
+        case 'CLOSE_MODAL':
+           return initialState
         
         default:
             return state

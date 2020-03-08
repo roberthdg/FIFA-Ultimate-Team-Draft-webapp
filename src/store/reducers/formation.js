@@ -1,17 +1,24 @@
 import { roleData } from '../../data/formations'
 import { sibblingPositionsData } from '../../data/formations'
 
-export const formationIndexReducer = (state=null, action) => {
+export const formationReducer = (state=null, action) => {
     switch(action.type) {
         case 'START_DRAFT':
-            return action.index 
+            return action.index
+
+        case 'CHANGE_NAME':
+            state.name=action.name
+            return {...state}
+
+        case 'SHOW_SQUAD':
+            return action.formation
         
         default:
             return state
     }
 }
 
-export const formationReducer = (state = [], action) => {
+export const squadReducer = (state = [], action) => {
     switch(action.type) {
         case 'START_DRAFT':
             state=[...action.payload]
@@ -35,6 +42,10 @@ export const formationReducer = (state = [], action) => {
             updateChemistry(state)
 
             return [...state]
+        
+        case 'SHOW_SQUAD':
+            state=[...action.squad]
+            return state
 
         default:
             return state

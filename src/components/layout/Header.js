@@ -31,10 +31,10 @@ function Header()  {
                     <Nav.Link as={Link} to ="/">Build Your Ultimate Team</Nav.Link>
                     <Nav.Link as={Link} to ="/rules">Rules</Nav.Link>
                     <Nav.Link as={Link} to ="/leaderboard" >Leaderboard</Nav.Link>
-                    <Nav.Link className="d-lg-none" href="https://github.com/roberthdg">Github Project</Nav.Link>
+                    <Nav.Link className="d-lg-none" href="https://github.com/roberthdg/FIFA-Ultimate-Team-Draft-webapp">Github Project</Nav.Link>
                 </Nav>
                             
-                <Nav.Link href="https://github.com/roberthdg">
+                <Nav.Link href="https://github.com/roberthdg/FIFA-Ultimate-Team-Draft-webapp">
                         <FontAwesomeIcon className="icon d-none d-md-block" icon={['fab', 'github']} size="2x"/>
                 </Nav.Link>
 

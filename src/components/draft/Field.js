@@ -5,21 +5,23 @@ import Player from './Player'
 import DraftPlayer from './DraftPlayer'
 import { roleData } from '../../data/formations'
 import { connect, useDispatch } from 'react-redux';
-import { populateModal } from '../../store/actions.js';
+import { populateModal, showModal, hideModal, closeModal } from '../../store/actions.js';
 import Modal from 'react-modal';
-import { modalStyle } from '../../styles/modalStyle'
+import { modalStyle, modalStyleHidden } from '../../styles/modalStyle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faTimesCircle} from '@fortawesome/free-regular-svg-icons'
 
 
 Modal.setAppElement('#root')
 
 const mapStateToProps = (state) => {
     return {
-        formation: state.formation,
+        squad: state.squad,
         isLoaded: state.isLoaded,
-        modalIsOpen: state.modalIsOpen,
+        modalState: state.modalState,
         selectedPlayer: state.selectedPlayer,
         draftedPlayers: state.draftedPlayers,
-        formationIndex: state.formationIndex,
+        formation: state.formation,
         draftCount: state.draftCount
     }
 }
@@ -29,10 +31,10 @@ const Field = (props) => {
     const dispatch = useDispatch();
     const preloader = props.isLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
 
-    const displayFormation = () => {
-        let players = props.formation.map( (player, i) => <Player key={i} index={i}/>)
-        let gridIndex = Object.values(props.formationIndex)[0] //sets flex grid structure for the formation
-        
+    function displayFormation() {
+        let players = props.squad.map( (player, i) => <Player key={i} index={i}/>)
+        let gridIndex = Object.values(props.formation.index)[0] //sets flex grid structure for the formation
+
         return [
             <div key="attack" className="flex grid"> {players.slice(gridIndex[2], 11)} </div>,
             <div key="midfield" className="flex grid"> {players.slice(gridIndex[1], gridIndex[2])} </div>,
@@ -41,10 +43,21 @@ const Field = (props) => {
         ]  
     }   
 
-    const renderModal = () =>  {
+    function renderModal() {
+        const eyeIcon = <div className="eyeIcon" onMouseOver={() => dispatch(hideModal())}  onMouseLeave={() =>dispatch(showModal())} > <FontAwesomeIcon icon={faEye} /> </div>
+        const closeIcon = <div className="closeIcon" onClick={() => dispatch(closeModal())} > <FontAwesomeIcon icon={faTimesCircle} /> </div>
+        
         return  (
-            <Modal isOpen={props.modalIsOpen} onAfterOpen={() => getPlayers()} style={modalStyle}> 
-                <h2>{props.draftCount<11? 'Select a player' : 'Swap positions'}</h2>
+            <Modal isOpen={props.modalState.open} onAfterOpen={() => getPlayers()} style={props.modalState.hidden? modalStyleHidden : modalStyle}> 
+                { props.draftedPlayers==null ? null : eyeIcon }
+                { props.draftCount<11 ? null : closeIcon }
+                 
+                <h2 className="modalTitle">
+                    {props.draftCount<11
+                    ? `Select a player (${props.squad[props.selectedPlayer].fieldPosition})` 
+                    : 'Swap positions'}
+                </h2>
+
                 <div className="box">
                     <div className={props.draftCount<11? "flexModal" : "flexModal padding"}>     
                         {props.draftedPlayers==null
@@ -56,11 +69,11 @@ const Field = (props) => {
         )
     }
 
-    const getPlayers = () => {
+    function getPlayers() {
         if(props.draftCount<11) {
-            let position = props.formation[props.selectedPlayer].fieldPosition
+            let position = props.squad[props.selectedPlayer].fieldPosition
             let role = Object.keys(roleData).find(key => roleData[key].includes(position))
-            let draftedPlayers = props.formation.filter((player) => player.player._id!=null).map( i => i.player.cardImage)
+            let draftedPlayers = props.squad.filter((player) => player.player._id!=null).map( i => i.player.cardImage)
 
             axios.post(process.env.REACT_APP_API_URL+'/draft', {
                 position: position,
@@ -75,7 +88,7 @@ const Field = (props) => {
                 }
             )
         } else {
-            let playersData = props.formation.map((player, i) => props.selectedPlayer!==i
+            let playersData = props.squad.map((player, i) => props.selectedPlayer!==i
             ? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
             dispatch(populateModal(playersData))
         }
@@ -86,7 +99,7 @@ const Field = (props) => {
         {preloader}
         <div id="lineup" style={props.isLoaded ? {} : { display: 'none' }}>
             {displayFormation()} 
-            {props.modalIsOpen? renderModal() : null}
+            {props.modalState.open===true && props.modalState.type==="draft"? renderModal() : null}
         </div>
         </>
     )

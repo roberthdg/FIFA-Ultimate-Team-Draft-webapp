@@ -1,11 +1,11 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {startDraft} from '../../store/actions';
-import {formationData, indexFormationData} from '../../data/formations.js';
+import { useDispatch } from 'react-redux';
+import { startDraft } from '../../store/actions';
+import { formationData, indexFormationData } from '../../data/formations.js';
 import Modal from 'react-modal';
-import {modalStyle} from '../../styles/modalStyle';
+import { modalStyle } from '../../styles/modalStyle';
     
-const StartMenu = () => {
+const StartDraft = () => {
 
     const dispatch = useDispatch();
     const formations = JSON.parse(JSON.stringify(formationData))
@@ -47,4 +47,4 @@ const StartMenu = () => {
     )
 }
 
-export default StartMenu
+export default StartDraft

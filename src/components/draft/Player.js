@@ -7,7 +7,7 @@ const STATIC_URL = process.env.REACT_APP_API_URL+'/uploads/'
 
 const mapStateToProps = (state) => {
     return {
-        formation: state.formation,
+        squad: state.squad,
         draftCount: state.draftCount,
         selectedPlayer: state.selectedPlayer,
         isLoaded: state.isLoaded
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const Player = (props) => {
 
   const dispatch = useDispatch();
-  let playerData = props.formation[props.index]
+  let playerData = props.squad[props.index]
   let imgSource = playerData.player.position==null? process.env.PUBLIC_URL : STATIC_URL
   
   const renderChemistryLinks = () => {
@@ -44,7 +44,7 @@ const Player = (props) => {
     let chem = document.getElementById("chem"+props.selectedPlayer)
     chem.style.display = "block"
     img.classList.add("transform")
-    img.src= STATIC_URL+props.formation[props.selectedPlayer].player.cardImage 
+    img.src= STATIC_URL+props.squad[props.selectedPlayer].player.cardImage 
   }
 
   return (
@@ -54,7 +54,7 @@ const Player = (props) => {
         className="playerCard transform"
         alt="Player card"
         src={imgSource+playerData.player.cardImage}
-        onClick={() => props.draftCount<11 && playerData.player.position!=null? null : dispatch(openModal(props.index))}
+        onClick={() => props.draftCount<11 && playerData.player.position!=null? null : dispatch(openModal("draft", props.index))}
         onLoad={() => props.isLoaded? null : dispatch(imgLoaded())}
 
         //allow player swaps after draft completion

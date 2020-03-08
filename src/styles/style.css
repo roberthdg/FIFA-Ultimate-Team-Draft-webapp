@@ -1,12 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Quantico&display=swap');
+
 body {
+    font-family: 'Quantico', sans-serif !important;
     background-image: url('/img/bg.jpg');
     background-size: 270vh;
     background-position: 48% 50%;
     background-attachment: fixed;  
 }
 
+.tag {
+    color: white;
+    font-weight: bold;
+}
+
+.tag:hover {
+    color: rgb(255, 255, 255);
+}
+
 .padding {
     padding-left: 90vh;
+}
+
+.row {
+    margin-top: 5%;
+    padding-bottom: 5%;
+}
+
+.topRow {
+    margin-top: 1%;
+    padding-bottom: 5%;
+}
+
+.cell1 {
+    margin-left: 5%;
+    width:15%;
+}
+.cell2 {
+    margin-left: 5%;
+    width: 50%;
+}
+.cell3 {
+    margin-left: 5%;
+    width: 15%;
+}
+
+.trophy {
+    width: 44px;
+    height: 56px;
+    margin-top: -20%;
+    position: relative;
 }
 
 .icon {
@@ -17,6 +59,26 @@ body {
     color:white;
 }
 
+.eyeIcon {
+    position: absolute;
+    margin: -0.8vh 2vh;
+    font-size: 5vh;
+    color: rgb(10,58,73) !important;
+    cursor: zoom-in;
+}
+
+.closeIcon {
+    position: absolute;
+    margin: -0.8vh 90vh;
+    font-size: 5vh;
+    cursor: pointer;
+}
+
+.editIcon {
+    position: absolute;
+    margin:-30vh 4vh;
+}
+
 .loader {
     margin: 40vh auto
 }
@@ -25,6 +87,43 @@ body {
     height: 15vh;
     width: 15vh;
     margin: 8vh 8vh
+}
+
+.rulesImage {
+    max-width: 60vw;
+    width: 50vh;
+    -webkit-box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+}
+
+.rulesImageWide {
+    max-width: 70vw;
+    width: 70vh;
+    -webkit-box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 6px 7px 14px 1px rgba(0,0,0,0.75);
+}
+
+.nameInput {
+    background-color: transparent;
+    margin: 2vh auto;
+    border-color: transparent;
+    color: white;
+    font-size: larger; 
+}
+
+.modalButton {
+    color:white;
+    background-color: rgb(15, 24, 32);
+    padding: 1vh 4vh;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    font-weight: bolder;
+}
+
+.modalButton:hover {
+    background-color: rgb(6, 10, 14);
 }
 
 .svg{
@@ -44,6 +143,15 @@ body {
 
 .title {
     margin-top: 5vh;
+}
+
+.rulesCard {
+    color: white;
+    margin: 5vh auto;
+    text-align: center;
+    font-size: large;
+    background-color: rgba(12, 12, 12, 0.4) !important;
+    width: 60vw;
 }
 
 .box {
@@ -71,6 +179,10 @@ body {
     width: 110vh;
 }
 
+.squad {
+    margin-left: 45vh;
+}
+
 #player {
    color:white;
    padding: 7vh;
@@ -87,6 +199,7 @@ body {
 }
 
 .grid {
+    margin: 1vh auto;
     flex-direction: row-reverse;
 }
 
@@ -160,7 +273,6 @@ body {
     background-color: rgba(12, 12, 12, 0.4) !important;
     width: 60vh;
     color: rgb(255, 255, 255);
-    font-weight: bolder;
 }
 
 .infoText {
@@ -170,6 +282,10 @@ body {
 .infoText:hover {
     cursor: pointer;
     background-color: rgba(12, 12, 12, 0.479) !important;
+}
+
+.score {
+    font-size:100px;
 }
   
 /*--------- RESPONSIVE STYLE ----------*/
@@ -214,10 +330,14 @@ body {
     }
     
     .modalLoader {
-        margin: 15vw -33%;
+        margin: 15vw -56vw;
         position: absolute;
     }
     
+    .modalTitle {
+        margin: 5vw auto;
+    }
+
     .svg{
         height: 25vw;
         width: 30vw;
@@ -248,23 +368,15 @@ body {
     }
     
     .flexModal {
-        margin: 2vw 90%;
+        margin: 2vw 95vw;
         height: 60vw;
     }
     
-    .playerModalItem {
-        padding: 0 17vw;
-        margin: 2vw 0vw;
-    }
 
     .padding {
         padding-left: 130%;
     }
     
-    .playerModalCard {
-        width: 35vw;
-        height: 47vw;
-    }
 
     .formationItem {
         width: 40vh;
@@ -288,13 +400,51 @@ body {
         margin-bottom: 5vw;
         
     }
+
+    .rulesCard {
+        width: 90vw;
+    }
+
+    
+    .squad {
+        margin-left: 0;
+    }
+
+    .eyeIcon {
+        margin: -6vw -0.3vw;
+        font-size: 8vw;
+    }
+
+    .closeIcon {
+        margin: -5vw 73vw;
+        font-size: 8vw;
+    }
+
+    .modalButton {
+        color:white;
+        background-color: rgb(15, 24, 32);
+        padding: 2vw 8vw;
+        margin-top: 8vw;
+        margin-bottom: 3vw;
+        font-weight: bolder;
+    }
+
+    .score {
+        margin-top: 3vw; 
+        margin-bottom: 3vw;
+    }
+
+    .trophy {
+        width: 40px;
+        height: 50px;
+        margin-left: -1vw;
+        margin-top: -3vw;
+
+    }
+
 }
 
-
-  
 /*--------- SCROLLBAR STYLE ----------*/
-
-
 
 ::-webkit-scrollbar {
     width: 0.5vw;

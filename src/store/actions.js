@@ -1,8 +1,9 @@
-export const startDraft = (formation, formationIndex) =>{
+export const startDraft = (formation, formationIndex, formationName) =>{
     return {
         type:"START_DRAFT",
         payload: formation,
-        index: formationIndex
+        index: formationIndex,
+        name: formationName
     };
 };
 
@@ -12,10 +13,31 @@ export const resetDraft = () =>{
     };
 };
 
-export const openModal = (playerIndex) =>{
+export const openModal = (modalType, playerIndex) =>{
     return {
         type:"OPEN_MODAL",
-        payload: playerIndex
+        payload: {
+            modalType: modalType,
+            selectedPlayer:playerIndex
+        }
+    };
+};
+
+export const closeModal = () =>{
+    return {
+        type:"CLOSE_MODAL",
+    };
+};
+
+export const hideModal = () =>{
+    return {
+        type:"HIDE_MODAL",
+    };
+};
+
+export const showModal = () =>{
+    return {
+        type:"SHOW_MODAL",
     };
 };
 
@@ -60,6 +82,22 @@ export const imgLoaded = () =>{
         type:"IS_LOADED"
     };
 };
+
+export const changeName = (formationName) =>{
+    return {
+        type:"CHANGE_NAME",
+        name: formationName
+    };
+};
+
+export const showSquad = (squadData, formationData) =>{
+    return {
+        type:"SHOW_SQUAD",
+        squad: squadData,
+        formation: formationData
+    };
+};
+
 
 
 

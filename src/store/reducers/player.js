@@ -2,7 +2,7 @@ export const selectedPlayerReducer = (state=null, action) => {
 
     switch(action.type) {
         case 'OPEN_MODAL':
-            return action.payload
+            return action.payload.selectedPlayer
 
         case 'SELECT_PLAYER':
             return action.index

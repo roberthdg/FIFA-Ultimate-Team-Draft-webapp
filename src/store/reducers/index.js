@@ -2,17 +2,17 @@ import { combineReducers } from 'redux'
 import { startDraftReducer, draftCountReducer, preloaderReducer } from './draft'
 import { selectedPlayerReducer } from './player'
 import { modalReducer, modalPlayersReducer } from './modal'
-import { formationReducer, formationIndexReducer } from './formation'
+import { squadReducer, formationReducer } from './formation'
 
 const rootReducer = combineReducers({
     draftStarted: startDraftReducer,
     isLoaded: preloaderReducer,
+    modalState: modalReducer,
     draftCount: draftCountReducer,
-    modalIsOpen: modalReducer,
     selectedPlayer: selectedPlayerReducer,
     draftedPlayers: modalPlayersReducer,
-    formationIndex: formationIndexReducer,
     formation: formationReducer,
+    squad: squadReducer
 })
 
 export default (state, action) => (
