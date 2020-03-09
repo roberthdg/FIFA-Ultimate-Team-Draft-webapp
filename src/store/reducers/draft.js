@@ -21,7 +21,7 @@ export const draftCountReducer = (state = 0, action) => {
 
 export const preloaderReducer = (state = false, action) => {
     switch(action.type) {
-        case 'IS_LOADED':
+        case 'IMG_LOADED':
             return true
         
         default:

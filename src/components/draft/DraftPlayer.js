@@ -5,10 +5,9 @@ import {useDispatch} from 'react-redux';
 const DraftPlayer = (props) => {
 
   const imgSource = process.env.REACT_APP_API_URL+'/uploads/'+props.playerData.cardImage
-
   const dispatch = useDispatch();
 
-  const selectDraftPlayer = () => {
+  function selectDraftPlayer() {
     props.type==="draft"
     ? dispatch(updatePlayer(props.playerData, props.index))
     : dispatch(swapPlayer(props.selectedPlayer, props.index))

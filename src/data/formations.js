@@ -300,7 +300,6 @@ export const sibblingPositionsData = {
     'CAM':'CM',
     'CDM':'CM'
 }
-
     
 export const formationData = [formation442, formation433, formation343]
 

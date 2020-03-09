@@ -2,10 +2,6 @@
 
 body {
     font-family: 'Quantico', sans-serif !important;
-    background-image: url('/img/bg.jpg');
-    background-size: 270vh;
-    background-position: 48% 50%;
-    background-attachment: fixed;  
 }
 
 .tag {
@@ -189,11 +185,6 @@ body {
     margin-left: 45vh;
 }
 
-#player {
-   color:white;
-   padding: 7vh;
-}
-
 .flex {
     display: flex;
     justify-content: center;
@@ -213,6 +204,11 @@ body {
     width: 23vh;
     height: 24vh;
 }
+
+#player {
+    color:white;
+    padding: 7vh;
+ }
 
 .playerCard {
     position:absolute;
@@ -297,12 +293,26 @@ body {
   
 /*--------- RESPONSIVE STYLE ----------*/
 
-@media (max-width: 800px) {
-
+@media (min-width: 900px) { 
     body {
         background-image: url('/img/bg.jpg');
-        background-position: 47% 40%;
-        background-size: 300vh 200vh;
+        background-size: 270vh;
+        background-position: 48% 50%; 
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 900px) {
+
+    body {
+        font-family: 'Quantico', sans-serif !important;
+        background: 
+        linear-gradient(
+          rgba(64, 153, 255, 0.5), 
+          rgba(64, 153, 255, 0.5)
+        )    
+        , url('/img/bg_mobile.jpg');
+        background-position: 50% 0%;
     }
 
     .flex {
@@ -412,7 +422,6 @@ body {
         width: 90vw;
     }
 
-    
     .squad {
         margin-left: 0;
     }

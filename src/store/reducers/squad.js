@@ -53,6 +53,22 @@ export const squadReducer = (state = [], action) => {
     }
 }
 
+export const selectedPlayerReducer = (state=null, action) => {
+    switch(action.type) {
+        case 'OPEN_MODAL':
+            return action.payload.selectedPlayer
+
+        case 'SELECT_PLAYER':
+            return action.index
+            
+        case 'UPDATE_PLAYER':
+            return null
+
+        default:
+            return state
+    }
+}
+
 function calculateChemistry(formation, playerIndex) {
 
     formation[playerIndex].links.forEach(link => {
@@ -80,7 +96,7 @@ function calculateChemistry(formation, playerIndex) {
 
 }
 
-function getRole(data, position) {
+function getPlayerRole(data, position) {
     return Object.keys(data).find(key => data[key].includes(position));
 }
 
@@ -93,11 +109,8 @@ function updateChemistry(formation) {
         let baseChemistry
 
         if(player.player.position===player.fieldPosition) baseChemistry = 6
-
         else if (sibblingPositionsData[player.player.position]===player.fieldPosition) baseChemistry = 5
-
-        else if(getRole(roleData, player.player.position)===getRole(roleData, player.fieldPosition)) baseChemistry = 3
-
+        else if(getPlayerRole(roleData, player.player.position)===getPlayerRole(roleData, player.fieldPosition)) baseChemistry = 3
         else baseChemistry = 0
 
         //calculate extra chemistry
@@ -106,18 +119,13 @@ function updateChemistry(formation) {
         let linkChemistry
         
         if(totalLinksChemistry===0) linkChemistry = baseChemistry>0 ? -1 : 0
-
         else if(totalLinksChemistry<totalLinks/4) linkChemistry = 0;
-
         else if(totalLinksChemistry<totalLinks/2) linkChemistry = 1
-
         else if(totalLinksChemistry<=totalLinks) linkChemistry = baseChemistry===0 ? 1 : 3
-
         else linkChemistry = baseChemistry===0 ? 2 : 4
 
         player.chemistry=baseChemistry+linkChemistry
     })
-
 }
 
 

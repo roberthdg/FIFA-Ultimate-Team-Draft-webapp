@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
         squad: state.squad,
         draftCount: state.draftCount,
         selectedPlayer: state.selectedPlayer,
-        isLoaded: state.isLoaded
+        imgLoaded: state.imgLoaded
     }
 }
 
@@ -55,7 +55,7 @@ const Player = (props) => {
         alt="Player card"
         src={imgSource+playerData.player.cardImage}
         onClick={() => props.draftCount<11 && playerData.player.position!=null? null : dispatch(openModal("draft", props.index))}
-        onLoad={() => props.isLoaded? null : dispatch(imgLoaded())}
+        onLoad={() => props.imgLoaded? null : dispatch(imgLoaded())}
 
         //allow player swaps after draft completion
         draggable={props.draftCount<11 ? false : true}

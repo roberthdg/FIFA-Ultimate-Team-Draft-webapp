@@ -17,7 +17,7 @@ Modal.setAppElement('#root')
 const mapStateToProps = (state) => {
     return {
         squad: state.squad,
-        isLoaded: state.isLoaded,
+        imgLoaded: state.imgLoaded,
         modalState: state.modalState,
         selectedPlayer: state.selectedPlayer,
         draftedPlayers: state.draftedPlayers,
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
 const Field = (props) => {
 
     const dispatch = useDispatch();
-    const preloader = props.isLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
+    const preloader = props.imgLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
 
     function displayFormation() {
         let players = props.squad.map( (player, i) => <Player key={i} index={i}/>)
@@ -74,7 +74,7 @@ const Field = (props) => {
             let position = props.squad[props.selectedPlayer].fieldPosition
             let role = Object.keys(roleData).find(key => roleData[key].includes(position))
             let draftedPlayers = props.squad.filter((player) => player.player._id!=null).map( i => i.player.cardImage)
-
+            //fetch data from API to get 5 random players
             axios.post(process.env.REACT_APP_API_URL+'/draft', {
                 position: position,
                 role: role,
@@ -83,11 +83,10 @@ const Field = (props) => {
             .then(res => {
                 let playersData = res.data.map((player,i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
                 dispatch(populateModal(playersData))
-                }, error => {
-                    console.log(error);
-                }
+                }, error => console.log(error)
             )
         } else {
+            //populate modal with drafted players to swap positions
             let playersData = props.squad.map((player, i) => props.selectedPlayer!==i
             ? <DraftPlayer key={i} index={i} selectedPlayer={props.selectedPlayer} playerData={player.player}/> : null)
             dispatch(populateModal(playersData))
@@ -97,7 +96,7 @@ const Field = (props) => {
     return (
         <>
         {preloader}
-        <div id="lineup" style={props.isLoaded ? {} : { display: 'none' }}>
+        <div id="lineup" style={props.imgLoaded ? {} : { display: 'none' }}>
             {displayFormation()} 
             {props.modalState.open===true && props.modalState.type==="draft"? renderModal() : null}
         </div>

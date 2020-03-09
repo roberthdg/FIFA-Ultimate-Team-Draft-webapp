@@ -13,6 +13,13 @@ export const resetDraft = () =>{
     };
 };
 
+export const changeName = (formationName) =>{
+    return {
+        type:"CHANGE_NAME",
+        name: formationName
+    };
+};
+
 export const openModal = (modalType, playerIndex) =>{
     return {
         type:"OPEN_MODAL",
@@ -23,9 +30,10 @@ export const openModal = (modalType, playerIndex) =>{
     };
 };
 
-export const closeModal = () =>{
+export const populateModal = (players) =>{
     return {
-        type:"CLOSE_MODAL",
+        type: "POPULATE_MODAL",
+        playersData: players
     };
 };
 
@@ -38,6 +46,12 @@ export const hideModal = () =>{
 export const showModal = () =>{
     return {
         type:"SHOW_MODAL",
+    };
+};
+
+export const closeModal = () =>{
+    return {
+        type:"CLOSE_MODAL",
     };
 };
 
@@ -68,33 +82,17 @@ export const updatePlayer = (player, playerIndex) =>{
     };
 };
 
-
-export const populateModal = (players) =>{
-    return {
-        type: "POPULATE_MODAL",
-        playersData: players
-    };
-};
-
-
-export const imgLoaded = () =>{
-    return {
-        type:"IS_LOADED"
-    };
-};
-
-export const changeName = (formationName) =>{
-    return {
-        type:"CHANGE_NAME",
-        name: formationName
-    };
-};
-
 export const showSquad = (squadData, formationData) =>{
     return {
         type:"SHOW_SQUAD",
         squad: squadData,
         formation: formationData
+    };
+};
+
+export const imgLoaded = () =>{
+    return {
+        type:"IMG_LOADED"
     };
 };
 

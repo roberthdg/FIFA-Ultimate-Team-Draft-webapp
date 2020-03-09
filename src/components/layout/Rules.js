@@ -22,7 +22,7 @@ function Rules()  {
 
             <br/><br/><img className="rulesImageWide" src={process.env.PUBLIC_URL+"/img/rules/swap.jpg"} alt="swap positions"/><br/><br/>
 
-            Once you're finished tweaking your squad, you can submit it for evaluation, and if you make it into the top 100 it will appear on the <a className="tag" href="/leaderboard">leaderboard</a>.
+            Once you've finished tweaking your squad, submit it for evaluation, and if you make it into the top 100 it will appear on the <a className="tag" href="/leaderboard">leaderboard</a>.
             <br/><br/>Now you're ready to craft your Ultimate Team and make history!
 
           </p>

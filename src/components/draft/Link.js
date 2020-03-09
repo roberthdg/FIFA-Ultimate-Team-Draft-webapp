@@ -11,6 +11,7 @@ const chemistryLinesCoordenates = {
 }
 
 const chemistryLinesColor = {
+  //renders a different color according to the chemistry links (league, club or nationality)
   null: "#b4b5b8",
   0: "#eb1a1a",
   1: "#e3ae0e",

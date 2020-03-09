@@ -13,14 +13,14 @@ const mapStateToProps = (state) => {
     return {
         squad: state.squad,
         formation: state.formation,
-        isLoaded: state.isLoaded
+        imgLoaded: state.imgLoaded
     }
 }
 
 const Squad = (props) => {
 
     const dispatch = useDispatch();
-    const preloader = props.isLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
+    const preloader = props.imgLoaded ? null : <Loader type="Oval" color="white" height={100} width={100} className="loader"/>
 
     //hook to fetch squad data from the API
     useEffect(() => {
@@ -75,7 +75,7 @@ const Squad = (props) => {
         <div className="flex">
             <div className="flexItem"> 
                 {preloader}
-                <div id="lineup" style={props.isLoaded ? {} : { display: 'none' }}>  
+                <div id="lineup" style={props.imgLoaded ? {} : { display: 'none' }}>  
                     {displayFormation()} 
                 </div> 
             </div>

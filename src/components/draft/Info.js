@@ -119,8 +119,7 @@ const Info = (props) =>  {
                     starRatedColor="yellow"
                     numberOfStars={5}
                     starDimension='4vh'
-                /> 
-                <br/> <br/>
+                /> <br/> <br/>
                 <Card.Title> Chemistry </Card.Title>
                 <Progress percent={chemistry}/>
             </Card.Body>
