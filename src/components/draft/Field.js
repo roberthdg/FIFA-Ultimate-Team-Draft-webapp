@@ -11,7 +11,6 @@ import { modalStyle, modalStyleHidden } from '../../styles/modalStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faTimesCircle} from '@fortawesome/free-regular-svg-icons'
 
-
 Modal.setAppElement('#root')
 
 const mapStateToProps = (state) => {
@@ -83,8 +82,14 @@ const Field = (props) => {
             .then(res => {
                 let playersData = res.data.map((player,i) => <DraftPlayer key={i} type="draft" index={props.selectedPlayer} playerData={player}/>)
                 dispatch(populateModal(playersData))
-                }, error => console.log(error)
-            )
+                })
+            .catch(eror => {
+                dispatch(closeModal())
+                props.alert.fire({
+                    icon: 'error',
+                    title: 'Connection error'
+                });
+            })
         } else {
             //populate modal with drafted players to swap positions
             let playersData = props.squad.map((player, i) => props.selectedPlayer!==i

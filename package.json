@@ -1,6 +1,6 @@
 {
-  "name": "fut",
-  "version": "0.1.0",
+  "name": "futdraft",
+  "version": "0.8.1",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -25,7 +25,7 @@
     "react-star-ratings": "^2.3.0",
     "react-sweet-progress": "^1.1.2",
     "redux": "^4.0.5",
-    "source-map-explorer": "^2.3.1"
+    "sweetalert2": "^9.10.0"
   },
   "scripts": {
     "start": "node server.js",

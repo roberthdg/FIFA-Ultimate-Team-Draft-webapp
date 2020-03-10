@@ -91,7 +91,14 @@ const Info = (props) =>  {
             formation: JSON.stringify(Object.values(props.formation.index)[0]),
             data: JSON.stringify(props.squad),
         })
-        .then(res => setData(res.data.squad._id), error => console.log(error))
+        .then(res => setData(res.data.squad._id))
+        .catch(eror => {
+            dispatch(closeModal())
+            props.alert.fire({
+                icon: 'error',
+                title: 'Connection error'
+            });
+        })
     }
 
     return (
