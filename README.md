@@ -22,7 +22,7 @@ Project created with:
 
 ## General info
 
-The goal is to create the best possible team by choosing the right players in each position.
+The goal is to create the best possible team by choosing the right players on each position.
 
 Your squad score will be based on the average rating of the players and their overall chemistry.
 
@@ -40,7 +40,7 @@ Chemistry is calculated by comparing the player's original position with their c
 </p>
 
 
-After completing the draft, you can swap their positions to optimize chemistry links and get the best possible score. Drag and Drop can be used in desktop version, modal view available in mobile and desktop.
+After completing the draft, you can swap their positions to optimize chemistry links and get the best possible score. Drag and Drop can be used in desktop version, modal view available on mobile and desktop versions.
 
 
 <p align="center">
