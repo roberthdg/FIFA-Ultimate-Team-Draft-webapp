@@ -28,7 +28,7 @@ const Squad = (props) => {
           const result = await axios(
             process.env.REACT_APP_API_URL+'/squad/'+props.match.params.id
           );
-            dispatch(showSquad(JSON.parse(result.data.squad.data), JSON.parse(result.data.squad.formation)))
+            dispatch(showSquad(JSON.parse(result.data.squad.data), result.data.squad.name, JSON.parse(result.data.squad.formation)))
         };
         fetchData();
     }, [dispatch, props.match.params.id]);
@@ -37,7 +37,7 @@ const Squad = (props) => {
         if(props.formation===null) return null 
         let squad = props.squad
         let players = squad.map( (player, i) => <Player key={i} index={i}/>)
-        let gridIndex = props.formation //sets flex grid structure for the formation
+        let gridIndex = props.formation.index //sets flex grid structure for the formation
 
         return [
             <div key="attack" className="flex grid"> {players.slice(gridIndex[2], 11)} </div>,
@@ -54,6 +54,9 @@ const Squad = (props) => {
 
         return  (
             <Card className="infoCard">
+
+                <Card.Header><h5>{props.formation!==null? props.formation.name : null}</h5></Card.Header>
+
                 <Card.Body>
                     <Card.Title> Rating: {Math.round(averageRating)}  <br/> </Card.Title>
 

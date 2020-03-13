@@ -2,17 +2,22 @@ import { roleData } from '../../data/formations'
 import { sibblingPositionsData } from '../../data/formations'
 
 export const formationReducer = (state=null, action) => {
+    let newState
     switch(action.type) {
         case 'START_DRAFT':
             return action.index
 
         case 'CHANGE_NAME':
-            let newState = {...state}
+            newState = {...state}
             newState.name=action.name
             return newState
 
         case 'SHOW_SQUAD':
-            return action.formation
+            newState = {
+                name: action.name,
+                index: action.formation
+            }
+            return newState
         
         default:
             return state

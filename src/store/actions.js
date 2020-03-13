@@ -82,10 +82,11 @@ export const updatePlayer = (player, playerIndex) =>{
     };
 };
 
-export const showSquad = (squadData, formationData) =>{
+export const showSquad = (squadData, formationName, formationData) =>{
     return {
         type:"SHOW_SQUAD",
         squad: squadData,
+        name: formationName,
         formation: formationData
     };
 };
