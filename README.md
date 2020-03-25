@@ -28,7 +28,7 @@ Your squad score will be based on the average rating of the players and their ov
 
 
 <p align="center">
-  <img alt="Rating" src="https://fifa-ultimate-team-draft.herokuapp.com/img/rules/rating.jpg">
+  <img alt="Rating" src="https://fletesya.cl/img/github/rating.jpg">
 </p>
 
 
@@ -36,7 +36,7 @@ Chemistry is calculated by comparing the player's original position with their c
 
 
 <p align="center">
-  <img alt="Chemistry" src="https://fifa-ultimate-team-draft.herokuapp.com/img/rules/chemistry.jpg">
+  <img alt="Chemistry" src="https://fletesya.cl/img/github/chemistry.jpg">
 </p>
 
 
@@ -44,7 +44,7 @@ After completing the draft, you can swap their positions to optimize chemistry l
 
 
 <p align="center">
-  <img alt="Chemistry" width="600" height="600" src="https://fifa-ultimate-team-draft.herokuapp.com/img/rules/swap.jpg">
+  <img alt="Chemistry" width="600" height="600" src="https://fletesya.cl/img/github/swap.jpg">
 </p>
 
 
